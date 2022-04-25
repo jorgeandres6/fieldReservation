@@ -10,6 +10,39 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SoccerField">
         <activity
+            android:name=".Update_sf_info"
+            android:exported="false" />
+        <activity
+            android:name=".Signin_ad"
+            android:exported="false" />
+        <activity
+            android:name=".Screen_1"
+            android:exported="false" />
+        <activity
+            android:name=".SF_list"
+            android:exported="false" />
+        <activity
+            android:name=".SF_admin"
+            android:exported="false" />
+        <activity
+            android:name=".Reservation_info"
+            android:exported="false" />
+        <activity
+            android:name=".Reservations"
+            android:exported="false" />
+        <activity
+            android:name=".Password_update"
+            android:exported="false" />
+        <activity
+            android:name=".field_admin"
+            android:exported="false" />
+        <activity
+            android:name=".Cancel_Reservation"
+            android:exported="false" />
+        <activity
+            android:name=".BalanceAdmin"
+            android:exported="false" />
+        <activity
             android:name=".AdminOptions"
             android:exported="false" />
         <activity

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SF_admin">
+
+  <View
+      android:id="@+id/soccerfield"
+      android:layout_width="match_parent"
+      android:layout_height="100dp"
+      android:background="#003d33"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <TextView
+      android:id="@+id/Reserve_confirm"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="24dp"
+      android:text="HANDONG FIELD"
+      android:textColor="#FFF"
+      android:textSize="40sp"
+      app:layout_constraintEnd_toEndOf="@+id/soccerfield"
+      app:layout_constraintStart_toStartOf="@+id/soccerfield"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <ImageView
+      android:id="@+id/imageView2"
+      android:layout_width="347dp"
+      android:layout_height="187dp"
+      app:srcCompat="@drawable/scfield2"
+      tools:layout_editor_absoluteX="32dp"
+      tools:layout_editor_absoluteY="125dp" />
+
+  <TextView
+      android:id="@+id/Opening_time"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Opening time"
+      tools:layout_editor_absoluteX="51dp"
+      tools:layout_editor_absoluteY="378dp" />
+
+  <TextView
+      android:id="@+id/Closing_time"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Closing time"
+      tools:layout_editor_absoluteX="52dp"
+      tools:layout_editor_absoluteY="426dp" />
+
+  <TextView
+      android:id="@+id/Price_hour_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Price per Hour"
+      tools:layout_editor_absoluteX="56dp"
+      tools:layout_editor_absoluteY="480dp" />
+
+  <EditText
+      android:id="@+id/editTextTime3"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:ems="10"
+      android:inputType="time"
+      tools:layout_editor_absoluteX="159dp"
+      tools:layout_editor_absoluteY="364dp" />
+
+  <EditText
+      android:id="@+id/editTextTime4"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:ems="10"
+      android:inputType="time"
+      tools:layout_editor_absoluteX="159dp"
+      tools:layout_editor_absoluteY="419dp" />
+
+  <EditText
+      android:id="@+id/Price_hour"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:ems="10"
+      android:inputType="textPersonName"
+      android:text="USD $40"
+      tools:layout_editor_absoluteX="159dp"
+      tools:layout_editor_absoluteY="464dp" />
+
+  <Button
+      android:id="@+id/update_info"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:ems="15"
+      android:text="Update Information"
+      android:textColor="#FFF"
+      android:background="#00695c"
+      android:textSize="20sp"
+      tools:layout_editor_absoluteX="28dp"
+      tools:layout_editor_absoluteY="649dp" />
+
+  <Button
+      android:id="@+id/check_reservations"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:background="#00695c"
+      android:ems="15"
+      android:text="Reservations"
+      android:textColor="#FFF"
+      android:textSize="20sp"
+      tools:layout_editor_absoluteX="28dp"
+      tools:layout_editor_absoluteY="586dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

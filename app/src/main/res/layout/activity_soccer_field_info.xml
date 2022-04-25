@@ -7,38 +7,41 @@
     tools:context=".SoccerFieldInfo">
 
     <View
+        android:id="@+id/soccerfield"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="100dp"
         android:background="#003d33"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="132dp"
-        android:text="La Bombonerita"
-        android:textColor="#FFF"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <TextView
+        android:id="@+id/Reserve_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="LA BOMBONERITA"
+        android:textColor="#FFF"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="@+id/soccerfield"
+        app:layout_constraintStart_toStartOf="@+id/soccerfield"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+       <ImageView
         android:id="@+id/imageView"
         android:layout_width="276dp"
         android:layout_height="166dp"
         app:srcCompat="@drawable/scfield1"
         tools:layout_editor_absoluteX="67dp"
-        tools:layout_editor_absoluteY="211dp" />
+        tools:layout_editor_absoluteY="118dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
-        android:layout_marginEnd="160dp"
+        android:layout_marginTop="328dp"
+        android:layout_marginEnd="244dp"
         android:text="$30 per hour"
         android:textColor="#003d33"
         android:textSize="20sp"
@@ -48,8 +51,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="440dp"
-        android:layout_marginEnd="160dp"
+        android:layout_marginTop="376dp"
+        android:layout_marginEnd="244dp"
         android:text="Handong Ro"
         android:textColor="#003d33"
         android:textSize="20sp"
@@ -59,8 +62,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="484dp"
-        android:layout_marginEnd="132dp"
+        android:layout_marginTop="420dp"
+        android:layout_marginEnd="180dp"
         android:text="Amount to Pay: $60"
         android:textColor="#003d33"
         android:textSize="20sp"
@@ -71,9 +74,13 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="fill_horizontal"
+        android:background="#00695c"
+        android:ems="15"
         android:text="Make a Reservation"
-        android:textColor="#003d33"
-        tools:layout_editor_absoluteX="104dp"
-        tools:layout_editor_absoluteY="571dp" />
+        android:textColor="#FFF"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="642dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

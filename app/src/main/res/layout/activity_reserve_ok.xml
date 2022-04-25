@@ -27,9 +27,22 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:ems="15"
         android:text="Please show up 5 mins prior your time or your reservation would be voided"
         android:textColor="#003d33"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="385dp" />
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="390dp" />
+
+    <Button
+        android:id="@+id/Back_to_Menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="15"
+        android:text="@string/back_to_menu"
+        android:textColor="#FFF"
+        android:background="#00695c"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="649dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
