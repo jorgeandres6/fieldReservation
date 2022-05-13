@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "285719076768",
+    "firebase_url": "https://canchas-e446d.firebaseio.com",
+    "project_id": "canchas-e446d",
+    "storage_bucket": "canchas-e446d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:285719076768:android:aaf4765395d772adbd0ec5",
+        "android_client_info": {
+          "package_name": "edu.handong.android.soccerfield"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "285719076768-fi0u6lecqfaj151agfnnduis6qgb5dtm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqmHe1cuMcQZAtpVElLdsup-PxEUroou8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "285719076768-fi0u6lecqfaj151agfnnduis6qgb5dtm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
