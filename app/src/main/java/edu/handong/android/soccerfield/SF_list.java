@@ -3,12 +3,18 @@ package edu.handong.android.soccerfield;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 
@@ -23,33 +29,46 @@ import java.lang.reflect.Array;
 public class SF_list extends AppCompatActivity {
 
     LinearLayout LL;
-    String [] nombres = {"1","2","3"};
+    Fields[] Afields = new Fields[10];
     int i;
+    DatabaseReference getImage;
+    DatabaseReference getData;
+    TextView TVPrueba;
+    String prueba;
+    ScrollView SVFields;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sf_list);
 
-        Button navigate_btn = findViewById(R.id.button);
-        ImageView rImage = findViewById(R.id.imgPrueba);
         LL = findViewById(R.id.LinL);
         i = 0;
+        prueba = "";
+        TVPrueba = findViewById(R.id.textView13);
+        SVFields = findViewById(R.id.SVFields);
+
+        //SVFields.setOnItemClickListener(LC);
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = firebaseDatabase.getReference();
-        DatabaseReference getImage = databaseReference.child("canchas").child("quito").child("1").child("fields").child("0").child("img");
+        //getImage = databaseReference.child("canchas").child("quito").child("1").child("fields").child("0").child("img");
+        getData = databaseReference.child("canchas").child("quito");
 
-        getImage.addListenerForSingleValueEvent(new ValueEventListener() {
+        getData.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                // getting a DataSnapshot for the location at the specified
-                // relative path and getting in the link variable
-                String link = dataSnapshot.getValue(String.class);
 
-                // loading that data into rImage
-                // variable which is ImageView
-                Picasso.get().load(link).into(rImage);
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Fields fields = snapshot.getValue(Fields.class);
+                    fields.setFoto(snapshot.child("foto").getValue().toString());
+                    Afields[i] = fields;
+                    i++;
+                }
+                i=0;
+                for (int j=0; j<2; j++){
+                    add();
+                }
             }
 
             // this will called when any problem
@@ -61,17 +80,92 @@ public class SF_list extends AppCompatActivity {
             }
         });
 
-        navigate_btn.setOnClickListener(view -> {
-            add(nombres[i]);
-            i++;
+    }
+
+    private void add(){
+
+        View v = getLayoutInflater().inflate(R.layout.card,null);
+        v.setTag(i);
+        ImageView img = v.findViewById(R.id.imgCard);
+        TextView TV = v.findViewById(R.id.TVname);
+
+        TV.setText(Afields[i].getNombre());
+        Picasso.get().load(Afields[i].getFoto()).into(img);
+
+        LL.addView(v);
+        i++;
+
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Toast.makeText(getApplicationContext(),Afields[Integer.parseInt(v.getTag().toString())].getNombre(),Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(),SoccerFieldInfo.class);
+                intent.putExtra("name", Afields[Integer.parseInt(v.getTag().toString())].getNombre());
+                intent.putExtra("close", Afields[Integer.parseInt(v.getTag().toString())].getCierre());
+                intent.putExtra("img", Afields[Integer.parseInt(v.getTag().toString())].getFoto());
+                intent.putExtra("opening", Afields[Integer.parseInt(v.getTag().toString())].getApertura());
+                intent.putExtra("address", Afields[Integer.parseInt(v.getTag().toString())].getDireccion());
+                intent.putExtra("cost", Afields[Integer.parseInt(v.getTag().toString())].getCost());
+                startActivity(intent);
+            }
         });
     }
 
-    private void add(String n){
-        View v = getLayoutInflater().inflate(R.layout.card,null);
-        Button b = v.findViewById(R.id.button3);
-        b.setText(n);
-        LL.addView(v);
+}
+
+class Fields {
+    private String apertura;
+    private String cierre;
+    private String direccion;
+    private String nombre;
+    private String foto;
+    private int cost;
+
+    public String getApertura() {
+        return apertura;
     }
 
+    public void setApertura(String apertura) {
+        this.apertura = apertura;
+    }
+
+    public String getCierre() {
+        return cierre;
+    }
+
+    public void setCierre(String cierre) {
+        this.cierre = cierre;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public int getCost() {
+        return cost;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
+    }
 }
