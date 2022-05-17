@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/Reserve_confirm"
+        android:id="@+id/tvFnameI"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -30,7 +30,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ivFimgI"
         android:layout_width="276dp"
         android:layout_height="166dp"
         android:layout_marginTop="18dp"
@@ -40,40 +40,46 @@
         app:srcCompat="@drawable/scfield1" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/tvFcostI"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
         android:text="$30 per hour"
         android:textColor="#003d33"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.468"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/tvFaddressI" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/tvFaddressI"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:text="Handong Ro"
         android:textColor="#003d33"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintTop_toBottomOf="@+id/ivFimgI" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/tvTotalI"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
         android:text="Amount to Pay: $60"
         android:textColor="#003d33"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.451"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        app:layout_constraintTop_toBottomOf="@+id/tvFcostI" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnMakeReservation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="fill_horizontal"

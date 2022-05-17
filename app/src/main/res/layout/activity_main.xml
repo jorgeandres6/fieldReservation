@@ -31,21 +31,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/Reserve"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#003D33"
-        android:text="@string/Reserve"
-         android:textColor="#FFF"
-        android:ems="12"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/soccerfield"
-        app:layout_constraintVertical_bias="0.265" />
-
-    <Button
         android:id="@+id/FieldOwner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,24 +42,40 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Reserve"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintTop_toBottomOf="@+id/CheckField" />
 
     <Button
         android:id="@+id/CheckField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/CheckField"
-        android:textColor="#FFF"
         android:background="#003d33"
         android:ems="12"
+        android:text="@string/CheckField"
+        android:textColor="#FFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FieldOwner"
-        app:layout_constraintVertical_bias="0.113" />
+        app:layout_constraintTop_toBottomOf="@+id/lvFields"
+        app:layout_constraintVertical_bias="0.188" />
+
+    <ListView
+        android:id="@+id/lvFields"
+        android:layout_width="412dp"
+        android:layout_height="146dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/soccerfield" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please select the city you want to reserve a field:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/soccerfield" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

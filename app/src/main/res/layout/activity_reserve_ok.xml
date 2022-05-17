@@ -6,43 +6,52 @@
     android:layout_height="match_parent"
     tools:context=".ReserveOK">
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="258dp"
-        android:layout_height="157dp"
-        app:srcCompat="@drawable/scfield1"
-        tools:layout_editor_absoluteX="76dp"
-        tools:layout_editor_absoluteY="88dp" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
         android:text="Your reservation is successfully booked"
         android:textColor="#003d33"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="319dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
         android:ems="15"
         android:text="Please show up 5 mins prior your time or your reservation would be voided"
         android:textColor="#003d33"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="390dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
-        android:id="@+id/Back_to_Menu"
+        android:id="@+id/btnBackR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#00695c"
         android:ems="15"
         android:text="@string/back_to_menu"
         android:textColor="#FFF"
-        android:background="#00695c"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="649dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="109dp"
+        android:layout_height="112dp"
+        android:layout_marginTop="112dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/checkbox_on_background" />
 </androidx.constraintlayout.widget.ConstraintLayout>

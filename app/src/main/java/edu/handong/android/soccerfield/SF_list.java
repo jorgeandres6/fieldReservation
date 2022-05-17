@@ -30,10 +30,9 @@ public class SF_list extends AppCompatActivity {
 
     LinearLayout LL;
     Fields[] Afields = new Fields[10];
-    int i;
-    DatabaseReference getImage;
+    int i, k;
     DatabaseReference getData;
-    TextView TVPrueba;
+    String city = "";
     String prueba;
     ScrollView SVFields;
 
@@ -44,16 +43,19 @@ public class SF_list extends AppCompatActivity {
 
         LL = findViewById(R.id.LinL);
         i = 0;
+        k = 0;
         prueba = "";
-        TVPrueba = findViewById(R.id.textView13);
         SVFields = findViewById(R.id.SVFields);
 
-        //SVFields.setOnItemClickListener(LC);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            city = extras.getString("city");
+        }
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = firebaseDatabase.getReference();
         //getImage = databaseReference.child("canchas").child("quito").child("1").child("fields").child("0").child("img");
-        getData = databaseReference.child("canchas").child("quito");
+        getData = databaseReference.child("canchas").child(city);
 
         getData.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -64,11 +66,15 @@ public class SF_list extends AppCompatActivity {
                     fields.setFoto(snapshot.child("foto").getValue().toString());
                     Afields[i] = fields;
                     i++;
+                    k++;
                 }
+
                 i=0;
-                for (int j=0; j<2; j++){
+
+               for (int j=0; j<k; j++){
                     add();
                 }
+
             }
 
             // this will called when any problem
