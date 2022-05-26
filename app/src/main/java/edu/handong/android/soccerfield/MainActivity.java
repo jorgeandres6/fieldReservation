@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     AutoCompleteTextView autoCompleteText;
     ArrayAdapter<String> adapterItems;
+    private int items;
 
 
     @Override
@@ -29,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
        autoCompleteText = findViewById(R.id.auto_complete_text);
 
-       adapterItems = new ArrayAdapter<String>(this,R.layout.list_item,items);
+        
+        adapterItems = new ArrayAdapter<String>(this,R.layout.list_item,items);
 
        autoCompleteText.setAdapter(adapterItems);
 
