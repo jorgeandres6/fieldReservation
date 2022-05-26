@@ -92,6 +92,7 @@
                 android:id="@+id/auto_complete_txt"
                 android:hint="@string/select_city"
                 android:layout_width="match_parent"
+                android:textSize="30sp"
                 android:layout_height="wrap_content"
                 android:inputType="none"/>
 
