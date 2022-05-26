@@ -27,17 +27,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       autoCompleteText = findViewById(R.id.auto_complete_text);
+       autoCompleteText = findViewById(R.id.auto_complete_txt);
 
-       adapterItems = new ArrayAdapter<String>(this,R.layout.list_item,items);
+        
+        adapterItems = new ArrayAdapter<String>(this,R.layout.items,cities);
 
        autoCompleteText.setAdapter(adapterItems);
 
        autoCompleteText.setOnItemClickListener(new AdapterView.OnItemClickListener() {
            @Override
            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               String item = parent.getItemAtPosition(position).toString();
-               Toast.makeText(getApplicationContext(),"Item "+item,Toast.LENGTH_SHORT).show();
+               String city = parent.getItemAtPosition(position).toString();
+               Toast.makeText(getApplicationContext(),"City: "+city,Toast.LENGTH_SHORT).show();
            }
        });
 
