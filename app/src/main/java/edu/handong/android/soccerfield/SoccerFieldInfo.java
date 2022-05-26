@@ -10,6 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+/**
+ *this class shows the information for all the soccer fields
+ */
 
 public class SoccerFieldInfo extends AppCompatActivity {
 

@@ -47,4 +47,6 @@
     <string name="field">Field</string>
     <string name="amount_to_pay">Amount to Pay</string>
     <string name="back_to_menu">Back to Menu</string>
+    <string name="select_city">Select City</string>
+
 </resources>

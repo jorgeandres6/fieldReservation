@@ -44,10 +44,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CheckField" />
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="@string/select_city"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+
+    </com.google.android.material.textfield.TextInputLayout>
     <Button
         android:id="@+id/CheckField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="212dp"
         android:background="#003d33"
         android:ems="12"
         android:text="@string/CheckField"
@@ -56,17 +65,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lvFields"
+        app:layout_constraintTop_toBottomOf="@+id/"
         app:layout_constraintVertical_bias="0.188" />
-
-    <ListView
-        android:id="@+id/lvFields"
-        android:layout_width="412dp"
-        android:layout_height="146dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/soccerfield" />
 
     <TextView
         android:id="@+id/textView"
@@ -76,6 +76,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/soccerfield" />
+
+    <AutoCompleteTextView
+        android:id="@+id/auto_complete_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="none"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="208dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

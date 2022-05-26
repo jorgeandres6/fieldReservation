@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -15,28 +16,32 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    String[] cities = {"Quito","Ibarra"};
+    String[] cities = {"Quito","Ibarra","Pohang","Daegu"};
+
+    AutoCompleteTextView autoCompleteText;
+    ArrayAdapter<String> adapterItems;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, cities);
+       autoCompleteText = findViewById(R.id.auto_complete_text);
 
-        ListView lvFields = (ListView) findViewById(R.id.lvFields);
+       adapterItems = new ArrayAdapter<String>(this,R.layout.list_item,items);
 
-        lvFields.setAdapter(adapter);
+       autoCompleteText.setAdapter(adapterItems);
 
-        lvFields.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //Toast.makeText(getApplicationContext(), cities[i].toLowerCase(Locale.ROOT), Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(),SF_list.class);
-                intent.putExtra("city",cities[i].toLowerCase(Locale.ROOT));
-                startActivity(intent);
-            }
-        });
+       autoCompleteText.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+           @Override
+           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+               String item = parent.getItemAtPosition(position).toString();
+               Toast.makeText(getApplicationContext(),"Item "+item,Toast.LENGTH_SHORT).show();
+           }
+       });
+
+
     }
 
 
