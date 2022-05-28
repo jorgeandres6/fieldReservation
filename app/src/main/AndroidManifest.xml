@@ -69,8 +69,11 @@
             android:name=".FieldSearch"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".MainActivity"/>
+            <activity
+                android:name=".SplashScreen"
+                android:exported="true"
+                android:theme="@style/SoccerField">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
