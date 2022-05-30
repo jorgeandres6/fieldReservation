@@ -36,7 +36,7 @@
         android:text="@string/Month_Reservation"
         android:textColor="#003d33"
         android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/editTextTextPersonName3"
         app:layout_constraintHorizontal_bias="0.299"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -45,12 +45,12 @@
         android:id="@+id/Money_collected"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="48dp"
         android:text="@string/money_collected"
         android:textColor="#003d33"
         android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName"
+        app:layout_constraintHorizontal_bias="0.154"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Month_Reservation" />
 
@@ -58,54 +58,65 @@
         android:id="@+id/Total_Payable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="60dp"
         android:text="@string/total_payable"
         android:textColor="#003d33"
         android:textSize="15sp"
-        app:layout_constraintTop_toBottomOf="@+id/Money_collected"
-        tools:layout_editor_absoluteX="50dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Money_collected" />
 
     <Button
         android:id="@+id/OK"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="312dp"
         android:background="#003d33"
         android:ems="10"
         android:text="@string/OK"
         android:textColor="#FFF"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="656dp" />
+        app:layout_constraintTop_toBottomOf="@+id/Total_Payable" />
 
     <EditText
         android:id="@+id/editTextTextPersonName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="12dp"
         android:ems="5"
+        android:hint="In Numbers"
         android:inputType="textPersonName"
-        android:text="USD $900"
-        tools:layout_editor_absoluteX="170dp"
-        tools:layout_editor_absoluteY="200dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3"
+        android:autofillHints="$" />
 
     <EditText
         android:id="@+id/editTextTextPersonName2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:ems="5"
+        android:hint="Total Payable"
         android:inputType="textPersonName"
-        android:text="USD $90"
-        tools:layout_editor_absoluteX="153dp"
-        tools:layout_editor_absoluteY="257dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.915"
+        app:layout_constraintStart_toEndOf="@+id/Total_Payable"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
     <EditText
         android:id="@+id/editTextTextPersonName3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="32dp"
         android:ems="4"
         android:inputType="textPersonName"
-        android:text="30"
-        tools:layout_editor_absoluteX="301dp"
-        tools:layout_editor_absoluteY="139dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/soccerfield"
+        android:autofillHints="Amount to Pay" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
