@@ -2,7 +2,7 @@
     <string name="app_name">SoccerField</string>
     <string name="Reserve">Reserve a Field</string>
     <string name="FieldOwner">Field Owner Space</string>
-    <string name="CheckField">Check my Reservation</string>
+    <string name="CheckField">Check available fields</string>
     <string name="LogOut">Log Out</string>
     <string name="SignOut">Sign Out</string>
     <string name="menu">MENU</string>

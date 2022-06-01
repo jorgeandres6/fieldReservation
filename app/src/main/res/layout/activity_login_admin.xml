@@ -38,33 +38,18 @@
         android:autofillHints="Password" />
 
     <Button
-        android:id="@+id/Log_in"
+        android:id="@+id/Sign_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="264dp"
-        android:background="#00695c"
+        android:layout_marginTop="252dp"
+        android:background="#003d33"
         android:ems="15"
         android:text="@string/Log_in"
         android:textColor="#FFF"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_text" />
-
-    <Button
-        android:id="@+id/Sign_in"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:background="#003d33"
-        android:ems="15"
-        android:text="@string/Sign_in"
-        android:textColor="#FFF"
-        android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@+id/Log_in"
-        tools:layout_editor_absoluteX="28dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/password_text"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp" />
 
     <View
         android:id="@+id/soccerfield"

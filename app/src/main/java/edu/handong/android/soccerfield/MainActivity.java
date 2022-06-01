@@ -34,12 +34,30 @@ public class MainActivity extends AppCompatActivity {
        adapterItems = new ArrayAdapter<String>(this,R.layout.items,cities);
 
        Button btnReserve = findViewById(R.id.btnCheckField);
+       Button btnLogin = findViewById(R.id.btnLogInM);
+       Button btnSignin = findViewById(R.id.btnSignInM);
 
        btnReserve.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
                Intent intent = new Intent(getApplicationContext(),SF_list.class);
                intent.putExtra("city",selectedCity.toLowerCase(Locale.ROOT));
+               startActivity(intent);
+           }
+       });
+
+       btnLogin.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent intent = new Intent(getApplicationContext(),LoginAdmin.class);
+               startActivity(intent);
+           }
+       });
+
+       btnSignin.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent intent = new Intent(getApplicationContext(),Signin_ad.class);
                startActivity(intent);
            }
        });
