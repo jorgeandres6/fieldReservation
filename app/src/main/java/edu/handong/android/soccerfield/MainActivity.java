@@ -16,7 +16,8 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    String[] cities = {"Quito","Ibarra","Pohang","Daegu"};
+    String[] cities = {"Quito","Ibarra"};
+    String selectedCity = "Quito";
 
     AutoCompleteTextView autoCompleteText;
     ArrayAdapter<String> adapterItems;
@@ -30,15 +31,26 @@ public class MainActivity extends AppCompatActivity {
        autoCompleteText = findViewById(R.id.auto_complete_txt);
 
         
-        adapterItems = new ArrayAdapter<String>(this,R.layout.items,cities);
+       adapterItems = new ArrayAdapter<String>(this,R.layout.items,cities);
+
+       Button btnReserve = findViewById(R.id.btnCheckField);
+
+       btnReserve.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent intent = new Intent(getApplicationContext(),SF_list.class);
+               intent.putExtra("city",selectedCity.toLowerCase(Locale.ROOT));
+               startActivity(intent);
+           }
+       });
 
        autoCompleteText.setAdapter(adapterItems);
 
        autoCompleteText.setOnItemClickListener(new AdapterView.OnItemClickListener() {
            @Override
            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               String city = parent.getItemAtPosition(position).toString();
-               Toast.makeText(getApplicationContext(),"City: "+city,Toast.LENGTH_SHORT).show();
+               selectedCity = parent.getItemAtPosition(position).toString();
+               //Toast.makeText(getApplicationContext(),"City: "+city,Toast.LENGTH_SHORT).show();
            }
        });
 
