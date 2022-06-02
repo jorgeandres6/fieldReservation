@@ -68,6 +68,7 @@
         android:id="@+id/btnReserveR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
         android:background="#003d33"
         android:ems="15"
         android:text="Reserve Now"
@@ -75,6 +76,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -99,7 +101,7 @@
         android:ems="10"
         android:hint="Please write down your email"
         android:inputType="textEmailAddress"
-        android:minHeight="48dp"
+        android:minHeight="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

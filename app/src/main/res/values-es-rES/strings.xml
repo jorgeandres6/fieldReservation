@@ -1,25 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- to support the app in multiple language all strings are written in strings.xml-->
     <string name="app_name">SoccerField</string>
-    <string name="Reserve">Reserve a Field</string>
-    <string name="FieldOwner">Field Owner Space</string>
-    <string name="CheckField">Check available fields</string>
-    <string name="LogOut">Log Out</string>
-    <string name="SignOut">Sign Out</string>
-    <string name="menu">MENU</string>
+    <string name="Reserve">Reserva un campo</string>
+    <string name="FieldOwner">Espacio del propietario del campo</string>
+    <string name="CheckField">Consultar campos disponibles</string>
+    <string name="LogOut">Cerrar sesión</string>
+    <string name="SignOut">Desconectar</string>
+    <string name="menu">MENÚ</string>
     <string name="fieldmaster">Welcome FieldMaster123</string>
     <string name="FieldAdmin">Fields Admin</string>
     <string name="Balance">Balance</string>
     <string name="PasswordUpdate">Password Update</string>
     <string name="CheckReserve">Check</string>
-    <string name="Reservations">Reservations</string>
+    <string name="Reservations">Reservas</string>
     <string name="SearchField">Search Field</string>
     <string name="Location">Location</string>
     <string name="Date">Date</string>
     <string name="StartingHour">Starting Hour</string>
     <string name="FinishHour">Finishing Hour</string>
     <string name="Searchs">Search</string>
-    <string name="TypeID">Please type down your ID</string>
+    <string name="TypeID">Por favor escriba su ID</string>
     <string name="Reserve_Codes">Please type down your reservation code</string>
     <string name="balance_admin">BALANCE</string>
     <string name="Month_Reservation">Reservations made during the month</string>
@@ -29,9 +29,9 @@
     <string name="cancel_my_reservation">Cancel my Reservation</string>
     <string name="Back">Go Back</string>
     <string name="cancel_now">Are you sure you want to cancel your reservation?</string>
-    <string name="Log_in">LogIn</string>
-    <string name="Log_inn">Login</string>
-    <string name="Sign_in">Sign In</string>
+    <string name="Log_in">Acceso</string>
+    <string name="Log_inn">Acceso</string>
+    <string name="Sign_in">registrarse</string>
     <string name="username_text">Username</string>
     <string name="password_text">Password</string>
     <string name="password_update">Password UPDATE</string>
@@ -54,7 +54,6 @@
     <string name="email">e-mail</string>
     <string name="reservation_book">Your reservation is successfully booked</string>
     <string name="to_do">Check Image</string>
-    <string name="selection_info">Please select the city you want to reserve a field:</string>
+    <string name="selection_info">Seleccione la ciudad en la que desea reservar un campo:</string>
     <string name="changeLang">Change Language</string>
-
 </resources>

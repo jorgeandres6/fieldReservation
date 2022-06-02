@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
-        android:text="Your reservation is successfully booked"
+        android:text="@string/reservation_book"
         android:textColor="#003d33"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,11 +20,12 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
         android:ems="15"
-        android:text="Please show up 5 mins prior your time or your reservation would be voided"
+        android:text="@string/void_reserve"
         android:textColor="#003d33"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,6 +37,7 @@
         android:id="@+id/btnBackR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="72dp"
         android:background="#00695c"
         android:ems="15"
         android:text="@string/back_to_menu"
@@ -43,6 +45,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
@@ -53,5 +56,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/checkbox_on_background" />
+        app:srcCompat="@android:drawable/checkbox_on_background"
+        android:contentDescription="@string/to_do" />
 </androidx.constraintlayout.widget.ConstraintLayout>
