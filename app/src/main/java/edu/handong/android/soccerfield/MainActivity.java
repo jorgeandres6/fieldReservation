@@ -32,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        loadLocale();
+
+     //   loadLocale();
         setContentView(R.layout.activity_main);
 
         Button changeLang = findViewById(R.id.changeLang);
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //show AlertDialog to display list of languages, one can be selected
-                showChangeLanguageDialog();
+       //         showChangeLanguageDialog();
             }
         });
 
@@ -90,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+/*
     private void showChangeLanguageDialog() {
         //array of languages on menu
         final String[] listItems = {"English", "Español"};
@@ -138,6 +139,6 @@ public class MainActivity extends AppCompatActivity {
         setLocale(language);
 
     }
-
+*/
 
 }
