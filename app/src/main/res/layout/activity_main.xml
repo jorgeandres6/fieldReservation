@@ -62,6 +62,20 @@
         app:layout_constraintTop_toBottomOf="@+id/btnCheckField" />
 
     <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="#003d33"
+        android:ems="12"
+        android:text="@string/LogOut"
+        android:textColor="#FFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCheckField" />
+
+    <Button
         android:id="@+id/btnSignInM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     AutoCompleteTextView autoCompleteText;
     ArrayAdapter<String> adapterItems;
 
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +36,12 @@ public class MainActivity extends AppCompatActivity {
         
        adapterItems = new ArrayAdapter<String>(this,R.layout.items,cities);
 
+       mAuth = FirebaseAuth.getInstance();
+
        Button btnReserve = findViewById(R.id.btnCheckField);
        Button btnLogin = findViewById(R.id.btnLogInM);
        Button btnSignin = findViewById(R.id.btnSignInM);
+       Button btnLogout = findViewById(R.id.btnLogout);
 
        btnReserve.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -57,10 +63,21 @@ public class MainActivity extends AppCompatActivity {
        btnSignin.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
+               finish();
                Intent intent = new Intent(getApplicationContext(),Signin_ad.class);
                startActivity(intent);
            }
        });
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mAuth.signOut();
+                Intent intent = getIntent();
+                finish();
+                startActivity(intent);
+            }
+        });
 
        autoCompleteText.setAdapter(adapterItems);
 
@@ -72,8 +89,16 @@ public class MainActivity extends AppCompatActivity {
            }
        });
 
+        if (mAuth.getCurrentUser() == null){
+            btnLogin.setVisibility(View.VISIBLE);
+            btnSignin.setVisibility(View.VISIBLE);
+            btnLogout.setVisibility(View.GONE);
+        }else{
+            btnLogin.setVisibility(View.GONE);
+            btnSignin.setVisibility(View.GONE);
+            btnLogout.setVisibility(View.VISIBLE);
+        }
 
     }
-
 
 }
