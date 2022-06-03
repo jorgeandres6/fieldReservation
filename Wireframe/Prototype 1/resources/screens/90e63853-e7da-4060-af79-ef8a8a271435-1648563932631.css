@@ -1,0 +1,227 @@
+#s-90e63853-e7da-4060-af79-ef8a8a271435 > #backgroundBox {
+  position: absolute;
+}
+
+#s-90e63853-e7da-4060-af79-ef8a8a271435 > #alignmentBox {
+  position: relative;
+  max-width: 360.0px;
+  max-height: 760.0px;
+  width: 100%;
+  height: 100%;
+}
+
+#s-90e63853-e7da-4060-af79-ef8a8a271435 #s-Button {
+  position: absolute;
+  width: 162.99999999999994px;
+  min-height: 77.0px;
+  -webkit-transform: rotate(0.0deg);
+  -moz-transform: rotate(0.0deg);
+  transform: rotate(0.0deg);
+  border-left-width: 0px;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  font-size: 0pt;
+  font-family: 'Arial',Arial;
+}
+
+#s-90e63853-e7da-4060-af79-ef8a8a271435 #s-Button > .backgroundLayer > .colorLayer {
+  background-color: transparent;
+  background-image: linear-gradient(180.0deg, #FFFFFF 0.001%, #E6E6E6 99.99999999999997%);
+}
+
+#s-90e63853-e7da-4060-af79-ef8a8a271435 #s-Button > .borderLayer {
+  border-top-width: 1.0px;
+  border-top-style: solid;
+  border-top-color: #CDCDCD;
+  border-right-width: 1.0px;
+  border-right-style: solid;
+  border-right-color: #CDCDCD;
+  border-bottom-width: 1.0px;
+  border-bottom-style: solid;
+  border-bottom-color: #CDCDCD;
+  border-left-width: 1.0px;
+  border-left-style: solid;
+  border-left-color: #CDCDCD;
+}
+
+#s-90e63853-e7da-4060-af79-ef8a8a271435 #s-Button .paddingLayer:first-child {
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+}
+
+#s-90e63853-e7da-4060-af79-ef8a8a271435 #s-Button .valign {
+  vertical-align: middle;
+  text-align: center;
+}
+
+#s-90e63853-e7da-4060-af79-ef8a8a271435 #s-Button span {
+  color: #030303;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Arial',Arial;
+  font-size: 10.0pt;
+  font-style: normal;
+  font-weight: 400;
+}
+
+#s-90e63853-e7da-4060-af79-ef8a8a271435 #s-Button span#rtr-s-Button_0 {
+  color: #030303;
+  text-decoration: none;
+  font-family: 'Arial',Arial;
+  font-size: 10.0pt;
+  font-style: normal;
+  font-weight: 400;
+}
+
+#s-90e63853-e7da-4060-af79-ef8a8a271435 #s-Button_1 {
+  position: absolute;
+  width: 158.50000000000023px;
+  min-height: 81.00000000000011px;
+  -webkit-transform: rotate(0.0deg);
+  -moz-transform: rotate(0.0deg);
+  transform: rotate(0.0deg);
+  border-left-width: 0px;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  font-size: 0pt;
+  font-family: 'Arial',Arial;
+}
+
+#s-90e63853-e7da-4060-af79-ef8a8a271435 #s-Button_1 > .backgroundLayer > .colorLayer {
+  background-color: transparent;
+  background-image: linear-gradient(180.0deg, #FFFFFF 0.001%, #E6E6E6 99.99999999999997%);
+}
+
+#s-90e63853-e7da-4060-af79-ef8a8a271435 #s-Button_1 > .borderLayer {
+  border-top-width: 1.0px;
+  border-top-style: solid;
+  border-top-color: #CDCDCD;
+  border-right-width: 1.0px;
+  border-right-style: solid;
+  border-right-color: #CDCDCD;
+  border-bottom-width: 1.0px;
+  border-bottom-style: solid;
+  border-bottom-color: #CDCDCD;
+  border-left-width: 1.0px;
+  border-left-style: solid;
+  border-left-color: #CDCDCD;
+}
+
+#s-90e63853-e7da-4060-af79-ef8a8a271435 #s-Button_1 .paddingLayer:first-child {
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+}
+
+#s-90e63853-e7da-4060-af79-ef8a8a271435 #s-Button_1 .valign {
+  vertical-align: middle;
+  text-align: center;
+}
+
+#s-90e63853-e7da-4060-af79-ef8a8a271435 #s-Button_1 span {
+  color: #030303;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Arial',Arial;
+  font-size: 10.0pt;
+  font-style: normal;
+  font-weight: 400;
+}
+
+#s-90e63853-e7da-4060-af79-ef8a8a271435 #s-Button_1 span#rtr-s-Button_1_0 {
+  color: #030303;
+  text-decoration: none;
+  font-family: 'Arial',Arial;
+  font-size: 10.0pt;
+  font-style: normal;
+  font-weight: 400;
+}
+
+#s-90e63853-e7da-4060-af79-ef8a8a271435 #s-Button_2 {
+  position: absolute;
+  width: 158.50000000000009px;
+  min-height: 85.46830878062758px;
+  -webkit-transform: rotate(0.0deg);
+  -moz-transform: rotate(0.0deg);
+  transform: rotate(0.0deg);
+  border-left-width: 0px;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  font-size: 0pt;
+  font-family: 'Arial',Arial;
+}
+
+#s-90e63853-e7da-4060-af79-ef8a8a271435 #s-Button_2 > .backgroundLayer > .colorLayer {
+  background-color: transparent;
+  background-image: linear-gradient(180.0deg, #FFFFFF 0.001%, #E6E6E6 99.99999999999999%);
+}
+
+#s-90e63853-e7da-4060-af79-ef8a8a271435 #s-Button_2 > .borderLayer {
+  border-top-width: 1.0px;
+  border-top-style: solid;
+  border-top-color: #CDCDCD;
+  border-right-width: 1.0px;
+  border-right-style: solid;
+  border-right-color: #CDCDCD;
+  border-bottom-width: 1.0px;
+  border-bottom-style: solid;
+  border-bottom-color: #CDCDCD;
+  border-left-width: 1.0px;
+  border-left-style: solid;
+  border-left-color: #CDCDCD;
+}
+
+#s-90e63853-e7da-4060-af79-ef8a8a271435 #s-Button_2 .paddingLayer:first-child {
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+}
+
+#s-90e63853-e7da-4060-af79-ef8a8a271435 #s-Button_2 .valign {
+  vertical-align: middle;
+  text-align: center;
+}
+
+#s-90e63853-e7da-4060-af79-ef8a8a271435 #s-Button_2 span {
+  color: #030303;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Arial',Arial;
+  font-size: 10.0pt;
+  font-style: normal;
+  font-weight: 400;
+}
+
+#s-90e63853-e7da-4060-af79-ef8a8a271435 #s-Button_2 span#rtr-s-Button_2_0 {
+  color: #030303;
+  text-decoration: none;
+  font-family: 'Arial',Arial;
+  font-size: 10.0pt;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.devMobile #jim-container .ui-page {
+  overflow-x: hidden;
+}
+
+.non_jim_mobile #simulation {
+  overflow-x: hidden;
+}
+
+.web #simulation {
+  overflow-x: hidden;
+}
+
+#s-90e63853-e7da-4060-af79-ef8a8a271435 > #loadMark {
+  width: 1px;
+  visibility: hidden;
+  display: none;
+}
