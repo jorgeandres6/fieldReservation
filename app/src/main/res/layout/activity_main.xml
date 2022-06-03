@@ -93,15 +93,16 @@
         android:id="@+id/changeLang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="108dp"
         android:background="#003d33"
         android:ems="12"
         android:text="@string/changeLang"
         android:textColor="#FFF"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSignInM" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLogInM" />
 
     <TextView
         android:id="@+id/textView"

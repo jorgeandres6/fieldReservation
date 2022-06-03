@@ -117,61 +117,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-<<<<<<< HEAD
 
-<<<<<<< HEAD
-=======
-=======
-/*
->>>>>>> 6208789ce601825015827c0d58d242a95138c1c4
-    private void showChangeLanguageDialog() {
-        //array of languages on menu
-        final String[] listItems = {"English", "Español"};
-        AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
-        mBuilder.setTitle("Choose Language...");
-        mBuilder.setSingleChoiceItems(listItems, -1, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                if (i == 0) {
-                    setLocale("esp");
-                    recreate();
-                }
-                else if (i == 1) {
-                    setLocale("en");
-                    recreate();
-                }
-                else if (i == 2) {
-                    setLocale("kr");
-                    recreate();
-                }
 
-                dialogInterface.dismiss();
-            }
-
-        });
-        AlertDialog mDialog = mBuilder.create();
-        mDialog.show();
-    }
-
-    private void setLocale(String lang) {
-        Locale locale= new Locale(lang);
-        Locale.setDefault(locale);
-        Configuration config= new Configuration();
-        config.locale=locale;
-        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
-
-        SharedPreferences.Editor editor=getSharedPreferences("Settings", MODE_PRIVATE).edit();
-        editor.putString("My_Lang", lang);
-        editor.apply();
-    }
-
-    public void loadLocale(){
-        SharedPreferences prefs=getSharedPreferences("Settings", Activity.MODE_PRIVATE);
-        String language=prefs.getString("My_Lang", "");
-        setLocale(language);
-
-    }
-*/
-
->>>>>>> f28ca3f22248e0f2cfc676567c993f11dfc8f410
 }
