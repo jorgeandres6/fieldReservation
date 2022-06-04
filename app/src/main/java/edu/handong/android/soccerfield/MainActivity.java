@@ -15,15 +15,18 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ListView;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
 
+    private Switch aSwitch;
     String[] cities = {"Quito","Ibarra"};
     String selectedCity = "Quito";
 
@@ -39,10 +42,14 @@ public class MainActivity extends AppCompatActivity {
      //   loadLocale();
         setContentView(R.layout.activity_main);
 
-        Button changeLang = findViewById(R.id.changeLang);
-        changeLang.setOnClickListener(new View.OnClickListener() {
+        aSwitch=findViewById(R.id.btn_switch);
+
+        aSwitch.setOnCheckedChangeListener(this);
+
+       Button changeLang = findViewById(R.id.changeLang);
+       changeLang.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+           public void onClick(View view) {
                 //show AlertDialog to display list of languages, one can be selected
        //         showChangeLanguageDialog();
             }
@@ -119,4 +126,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+    {
+        switch (buttonView.getId())
+        {
+            case R.id.btn_switch:
+                if(isChecked)
+                    showMessage("Spanish");
+                else
+                    showMessage("English");
+                break;
+
+        }
+
+    }
+    private void showMessage (String message)
+    {
+        Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
+    }
 }

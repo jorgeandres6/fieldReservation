@@ -9,6 +9,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+/**
+ *this class display the splash screen when the app is launched
+ */
 
 public class SplashScreen extends AppCompatActivity {
 
