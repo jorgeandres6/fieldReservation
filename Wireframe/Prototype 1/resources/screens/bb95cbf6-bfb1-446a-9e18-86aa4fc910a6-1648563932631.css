@@ -1,0 +1,166 @@
+#s-bb95cbf6-bfb1-446a-9e18-86aa4fc910a6 > #backgroundBox {
+  position: absolute;
+}
+
+#s-bb95cbf6-bfb1-446a-9e18-86aa4fc910a6 > #alignmentBox {
+  position: relative;
+  max-width: 360.0px;
+  max-height: 760.0px;
+  width: 100%;
+  height: 100%;
+}
+
+#s-bb95cbf6-bfb1-446a-9e18-86aa4fc910a6 #s-Image {
+  position: absolute;
+  width: 339.0px;
+  height: 171.00000000000006px;
+  -webkit-transform: rotate(0.0deg);
+  -moz-transform: rotate(0.0deg);
+  transform: rotate(0.0deg);
+  border-left-width: 0px;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+}
+
+#s-bb95cbf6-bfb1-446a-9e18-86aa4fc910a6 #s-Image_1 {
+  position: absolute;
+  width: 339.0px;
+  height: 171.00000000000006px;
+  -webkit-transform: rotate(0.0deg);
+  -moz-transform: rotate(0.0deg);
+  transform: rotate(0.0deg);
+  border-left-width: 0px;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+}
+
+#s-bb95cbf6-bfb1-446a-9e18-86aa4fc910a6 #s-Image_2 {
+  position: absolute;
+  width: 339.0px;
+  height: 171.00000000000006px;
+  -webkit-transform: rotate(0.0deg);
+  -moz-transform: rotate(0.0deg);
+  transform: rotate(0.0deg);
+  border-left-width: 0px;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+}
+
+#s-bb95cbf6-bfb1-446a-9e18-86aa4fc910a6 #s-Image_3 {
+  position: absolute;
+  width: 339.0px;
+  height: 171.00000000000006px;
+  -webkit-transform: rotate(0.0deg);
+  -moz-transform: rotate(0.0deg);
+  transform: rotate(0.0deg);
+  border-left-width: 0px;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+}
+
+#s-bb95cbf6-bfb1-446a-9e18-86aa4fc910a6 #s-Button {
+  position: absolute;
+  width: 68.0px;
+  min-height: 52.0px;
+  -webkit-transform: rotate(0.0deg);
+  -moz-transform: rotate(0.0deg);
+  transform: rotate(0.0deg);
+  filter:  drop-shadow(7.071067811865475px 7.0710678118654755px 5px #404040) drop-shadow(7.071067811865475px 7.0710678118654755px 5px #404040);
+  border-left-width: 0px;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  font-size: 0pt;
+  font-family: 'Arial',Arial;
+}
+
+#s-bb95cbf6-bfb1-446a-9e18-86aa4fc910a6 #s-Button > .backgroundLayer {
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  border-bottom-right-radius: 14px;
+  border-bottom-left-radius: 14px;
+}
+
+#s-bb95cbf6-bfb1-446a-9e18-86aa4fc910a6 #s-Button > .backgroundLayer > .colorLayer {
+  background-color: transparent;
+  background-image: linear-gradient(180.0deg, #FFFFFF 0.001%, #E6E6E6 99.99999999999999%);
+}
+
+#s-bb95cbf6-bfb1-446a-9e18-86aa4fc910a6 #s-Button > .borderLayer {
+  border-top-width: 1.0px;
+  border-top-style: solid;
+  border-top-color: #CDCDCD;
+  border-right-width: 1.0px;
+  border-right-style: solid;
+  border-right-color: #CDCDCD;
+  border-bottom-width: 1.0px;
+  border-bottom-style: solid;
+  border-bottom-color: #CDCDCD;
+  border-left-width: 1.0px;
+  border-left-style: solid;
+  border-left-color: #CDCDCD;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  border-bottom-right-radius: 14px;
+  border-bottom-left-radius: 14px;
+}
+
+#s-bb95cbf6-bfb1-446a-9e18-86aa4fc910a6 #s-Button > .backgroundLayer {
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  border-bottom-right-radius: 14px;
+  border-bottom-left-radius: 14px;
+}
+
+#s-bb95cbf6-bfb1-446a-9e18-86aa4fc910a6 #s-Button .paddingLayer:first-child {
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+}
+
+#s-bb95cbf6-bfb1-446a-9e18-86aa4fc910a6 #s-Button .valign {
+  vertical-align: middle;
+  text-align: center;
+}
+
+#s-bb95cbf6-bfb1-446a-9e18-86aa4fc910a6 #s-Button span {
+  color: #030303;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Arial',Arial;
+  font-size: 19.5pt;
+  font-style: normal;
+  font-weight: 400;
+}
+
+#s-bb95cbf6-bfb1-446a-9e18-86aa4fc910a6 #s-Button span#rtr-s-Button_0 {
+  color: #030303;
+  text-decoration: none;
+  font-family: 'Arial',Arial;
+  font-size: 19.5pt;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.devMobile #jim-container .ui-page {
+  overflow-x: hidden;
+}
+
+.non_jim_mobile #simulation {
+  overflow-x: hidden;
+}
+
+.web #simulation {
+  overflow-x: hidden;
+}
+
+#s-bb95cbf6-bfb1-446a-9e18-86aa4fc910a6 > #loadMark {
+  width: 1px;
+  visibility: hidden;
+  display: none;
+}
