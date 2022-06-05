@@ -8,7 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 /**
  *this class shows the information for all the soccer fields
@@ -22,6 +25,7 @@ public class SoccerFieldInfo extends AppCompatActivity {
     String name;
     String img;
     int cost,total;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,8 @@ public class SoccerFieldInfo extends AppCompatActivity {
         img="";
         cost=0;
         total=0;
+
+        mAuth = FirebaseAuth.getInstance();
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -65,11 +71,17 @@ public class SoccerFieldInfo extends AppCompatActivity {
         btnReserve.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),ReserveConfirm.class);
-                intent.putExtra("name", name);
-                intent.putExtra("address", address);
-                intent.putExtra("total", total);
-                startActivity(intent);
+                Intent intent;
+                FirebaseUser user = mAuth.getCurrentUser();
+                if (user == null){
+                    intent = new Intent(getApplicationContext(),LoginAdmin.class);
+                }else{
+                    intent = new Intent(getApplicationContext(),ReserveConfirm.class);
+                    intent.putExtra("name", name);
+                    intent.putExtra("address", address);
+                    intent.putExtra("total", total);
+                }
+                    startActivity(intent);
             }
         });
     }

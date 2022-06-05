@@ -86,8 +86,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
        Button changeLang = findViewById(R.id.changeLang);
        changeLang.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
 
        autoCompleteText = findViewById(R.id.auto_complete_txt);
 
-        
        adapterItems = new ArrayAdapter<String>(this,R.layout.items,cities);
 
        mAuth = FirebaseAuth.getInstance();
@@ -155,6 +152,16 @@ public class MainActivity extends AppCompatActivity {
            }
        });
 
+    }
+
+    @Override
+    protected void onResume() {
+
+        Button btnLogin = findViewById(R.id.btnLogInM);
+        Button btnSignin = findViewById(R.id.btnSignInM);
+        Button btnLogout = findViewById(R.id.btnLogout);
+
+        super.onResume();
         if (mAuth.getCurrentUser() == null){
             btnLogin.setVisibility(View.VISIBLE);
             btnSignin.setVisibility(View.VISIBLE);
@@ -164,7 +171,6 @@ public class MainActivity extends AppCompatActivity {
             btnSignin.setVisibility(View.GONE);
             btnLogout.setVisibility(View.VISIBLE);
         }
-
     }
 
     private void setLocale(String language) {

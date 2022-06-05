@@ -65,6 +65,7 @@ public class Signin_ad extends AppCompatActivity {
                     if (task.isSuccessful()){
                         Toast.makeText(Signin_ad.this,"Registration success", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(Signin_ad.this, MainActivity.class));
+                        finish();
                     }else  {
                         Toast.makeText(Signin_ad.this,"Registration error: "+task.getException().getMessage(),Toast.LENGTH_LONG);
                     }

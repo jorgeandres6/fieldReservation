@@ -59,6 +59,7 @@ public class LoginAdmin extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
                         Toast.makeText(LoginAdmin.this, "Welcome "+email, Toast.LENGTH_SHORT).show();
+                        finish();
                     }else {
                         Toast.makeText(LoginAdmin.this, "Login error: "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
