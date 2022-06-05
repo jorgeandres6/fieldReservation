@@ -1,5 +1,6 @@
 package edu.handong.android.soccerfield;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +10,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,16 +20,25 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
+public class MainActivity extends AppCompatActivity {
 
-    private Switch aSwitch;
+    //Initialize variable
+    TextView Menu, textview;
+    RadioGroup rgLanguage;
+    RadioButton rbEnglish,rbSpanish;
+    Button btncheckfield,btnloginm,btnlogout,btnsigninm;
+
+
     String[] cities = {"Quito","Ibarra"};
     String selectedCity = "Quito";
 
@@ -42,9 +54,39 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
      //   loadLocale();
         setContentView(R.layout.activity_main);
 
-        aSwitch=findViewById(R.id.btn_switch);
+        //Assign variable
+        Menu=findViewById(R.id.menu);
+        rgLanguage=findViewById(R.id.rg_language);
+        rbEnglish=findViewById(R.id.rb_english);
+        rbSpanish=findViewById(R.id.rb_spanish);
+        textview=findViewById(R.id.textView);
+        btncheckfield=findViewById(R.id.btnCheckField);
+        btnloginm=findViewById(R.id.btnLogInM);
+        btnlogout=findViewById(R.id.btnLogout);
+        btnsigninm=findViewById(R.id.btnSignInM);
 
-        aSwitch.setOnCheckedChangeListener(this);
+        //set listener on radio group
+        rgLanguage.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                //check condition
+                switch (checkedId){
+                    case R.id.rb_english:
+                        //when english selected
+                        //Initialize string
+                        String language="en";
+                        //set locale
+                        setLocale(language);
+                        break;
+                    case R.id.rb_spanish:
+                        setLocale("es");
+                        break;
+
+                }
+            }
+        });
+
+
 
        Button changeLang = findViewById(R.id.changeLang);
        changeLang.setOnClickListener(new View.OnClickListener() {
@@ -125,24 +167,37 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
 
     }
 
+    private void setLocale(String language) {
+        //Initialize resources
+        Resources resources = getResources();
+        //Initialize metrics
+        DisplayMetrics metrics = resources.getDisplayMetrics();
+        //Initialize locale
+        Configuration configuration = resources.getConfiguration();
+        //Update configuration
+        configuration.locale = new Locale(language);
+        //update configuration
+        resources.updateConfiguration(configuration,metrics);
+        //Notify configuration
+        onConfigurationChanged(configuration);
+    }
 
     @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
-    {
-        switch (buttonView.getId())
-        {
-            case R.id.btn_switch:
-                if(isChecked)
-                    showMessage("Spanish");
-                else
-                    showMessage("English");
-                break;
+    public void onConfigurationChanged(@NonNull Configuration newConfig){
+        super.onConfigurationChanged(newConfig);
+        //set strings from resources
+        Menu.setText(R.string.menu);
+        rbEnglish.setText(R.string.english);
+        rbSpanish.setText(R.string.spanish);
+        textview.setText(R.string.selection_info);
+        btncheckfield.setText(R.string.CheckField);
+        btnsigninm.setText(R.string.Sign_in);
+        btnlogout.setText(R.string.LogOut);
+        btnloginm.setText(R.string.Log_in);
 
-        }
+
 
     }
-    private void showMessage (String message)
-    {
-        Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
-    }
+
+
 }

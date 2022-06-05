@@ -56,5 +56,7 @@
     <string name="to_do">Check Image</string>
     <string name="selection_info">Please select the city you want to reserve a field:</string>
     <string name="changeLang">Change Language</string>
+    <string name="english">en</string>
+    <string name="spanish">esp</string>
 
 </resources>
