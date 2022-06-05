@@ -63,7 +63,7 @@ public class Signin_ad extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()){
-                        Toast.makeText(Signin_ad.this,"Registration succes", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Signin_ad.this,"Registration success", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(Signin_ad.this, MainActivity.class));
                     }else  {
                         Toast.makeText(Signin_ad.this,"Registration error: "+task.getException().getMessage(),Toast.LENGTH_LONG);

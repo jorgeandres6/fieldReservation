@@ -40,7 +40,7 @@ public class SplashScreen extends AppCompatActivity {
         if (user == null){
             Toast.makeText(this, "Nell", Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(this, user.getEmail(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, user.getUid(), Toast.LENGTH_SHORT).show();
         }
     }
 }

@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -18,10 +19,11 @@ public class ReserveConfirm extends AppCompatActivity {
 
     String address, name;
     int total;
-    EditText etEmail,etID;
     TextView tvAddress, tvFname, tvTotal;
     Button btnReserve;
     DatabaseReference databaseReference;
+    String timestamp;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +33,6 @@ public class ReserveConfirm extends AppCompatActivity {
         address = "";
         name = "";
         total = 0;
-        etEmail = findViewById(R.id.etEmailR);
-        etID = findViewById(R.id.etIDR);
         tvAddress = findViewById(R.id.tvAddressR);
         tvFname = findViewById(R.id.tvFnameR);
         tvTotal = findViewById(R.id.tvTotalR);
@@ -53,10 +53,15 @@ public class ReserveConfirm extends AppCompatActivity {
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("reservations");
 
+        mAuth = FirebaseAuth.getInstance();
+
         btnReserve.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                databaseReference.child(etID.getText().toString()).setValue(new Reservation(etEmail.getText().toString(),etID.getText().toString(),name,total));
+                Long currentTime = System.currentTimeMillis()/1000;
+                timestamp = currentTime.toString();
+                databaseReference.child(mAuth.getCurrentUser().getUid()).child(timestamp).setValue(new Reservation(mAuth.getCurrentUser().getEmail(),"0",name,total));
+
                 Intent intent = new Intent(getApplicationContext(),ReserveOK.class);
                 startActivity(intent);
             }
@@ -76,5 +81,6 @@ class Reservation {
         this.ID = ID;
         this.Fname = Fname;
         this.total = total;
+        this.hour = "09h00";
     }
 }
