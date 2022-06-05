@@ -17,22 +17,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <TextView
-        android:id="@+id/fieldmaster"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="@string/fieldmaster"
-        android:textColor="#00695c"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/FieldAdmin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/soccerfield"
-        app:layout_constraintVertical_bias="0.303" />
-
     <Button
-        android:id="@+id/FieldAdmin"
+        android:id="@+id/btnAddField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -41,73 +27,9 @@
         android:text="@string/FieldAdmin"
         android:textColor="#FFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/LogOut"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/soccerfield"
-        app:layout_constraintVertical_bias="0.245" />
-
-    <Button
-        android:id="@+id/Balance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="88dp"
-        android:background="#00695c"
-        android:ems="10"
-        android:text="@string/Balance"
-        android:textColor="#FFF"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/FieldAdmin" />
-
-    <Button
-        android:id="@+id/PasswordUpdate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:background="#00695c"
-        android:ems="10"
-        android:text="@string/PasswordUpdate"
-        android:textColor="#FFF"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/LogOut"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Balance"
-        app:layout_constraintVertical_bias="0.241" />
-
-    <Button
-        android:id="@+id/LogOut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:background="#003d33"
-        android:ems="15"
-        android:text="@string/LogOut"
-        android:textColor="#FFF"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/SignOut"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/SignOut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
-        android:background="#00695c"
-        android:ems="15"
-        android:text="@string/SignOut"
-        android:textColor="#FFF"
-        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView

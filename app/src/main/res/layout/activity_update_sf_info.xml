@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="UPDATE INFO"
+        android:text="Add Field"
         android:textColor="#FFF"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="@+id/soccerfield"
@@ -29,107 +29,157 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/tvFieldNameAU"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="147dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="44dp"
+        android:text="Field name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/soccerfield" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/tvAddressAU"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="27dp"
-        tools:layout_editor_absoluteY="198dp" />
+        android:layout_marginTop="28dp"
+        android:text="Address"
+        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName17"
+        app:layout_constraintHorizontal_bias="0.145"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvFieldNameAU" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/tvOHourAU"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="255dp" />
+        android:layout_marginTop="48dp"
+        android:text="Opening hour"
+        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName18"
+        app:layout_constraintHorizontal_bias="0.136"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddressAU" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/tvCHourAU"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="21dp"
-        tools:layout_editor_absoluteY="309dp" />
+        android:layout_marginTop="44dp"
+        android:text="Closing Hour"
+        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName19"
+        app:layout_constraintHorizontal_bias="0.136"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvOHourAU" />
 
     <EditText
         android:id="@+id/editTextTextPersonName16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="134dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintStart_toEndOf="@+id/tvFieldNameAU"
+        app:layout_constraintTop_toBottomOf="@+id/soccerfield" />
 
     <EditText
         android:id="@+id/editTextTextPersonName17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="60dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        tools:layout_editor_absoluteX="142dp"
-        tools:layout_editor_absoluteY="197dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName16" />
 
     <EditText
         android:id="@+id/editTextTextPersonName18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="64dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="253dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName17" />
 
     <EditText
         android:id="@+id/editTextTextPersonName19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="60dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        tools:layout_editor_absoluteX="142dp"
-        tools:layout_editor_absoluteY="313dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName18" />
 
     <Button
-        android:id="@+id/update_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="15"
-        android:text="CANCEL"
-        android:textColor="#FFF"
-        android:background="#00695c"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="649dp" />
-
-    <Button
-        android:id="@+id/check_reservations"
+        android:id="@+id/btnCancelAU"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#00695c"
         android:ems="15"
-        android:text="UPDATE"
+        android:text="Cancel"
         android:textColor="#FFF"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="586dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnAddFieldAU"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:background="#00695c"
+        android:ems="15"
+        android:text="Add"
+        android:textColor="#FFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnCancelAU"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="244dp"
         android:layout_height="143dp"
-        app:srcCompat="@drawable/scfield1"
-        tools:layout_editor_absoluteX="79dp"
-        tools:layout_editor_absoluteY="382dp" />
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddFieldAU"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/scfield1" />
+
+    <TextView
+        android:id="@+id/tvCostAU"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="Cost per hour"
+        app:layout_constraintEnd_toStartOf="@+id/etCostAU"
+        app:layout_constraintHorizontal_bias="0.034"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCHourAU" />
+
+    <EditText
+        android:id="@+id/etCostAU"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="60dp"
+        android:ems="10"
+        android:hint="Cost per hour"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName19" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

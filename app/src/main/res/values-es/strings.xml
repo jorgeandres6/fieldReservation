@@ -8,7 +8,7 @@
     <string name="SignOut">Desconectar</string>
     <string name="menu">MENÚ</string>
     <string name="fieldmaster">Welcome FieldMaster123</string>
-    <string name="FieldAdmin">Fields Admin</string>
+    <string name="FieldAdmin">Agregar un campo</string>
     <string name="Balance">Balance</string>
     <string name="PasswordUpdate">Actualización de contraseña</string>
     <string name="CheckReserve">Check</string>

@@ -17,11 +17,11 @@ import java.util.Map;
 
 public class ReserveConfirm extends AppCompatActivity {
 
-    String address, name;
-    int total;
+    String address,name,id;
+    int total, hour;
     TextView tvAddress, tvFname, tvTotal;
     Button btnReserve;
-    DatabaseReference databaseReference;
+    DatabaseReference databaseReference, databaseReferenceFields;
     String timestamp;
     FirebaseAuth mAuth;
 
@@ -43,6 +43,8 @@ public class ReserveConfirm extends AppCompatActivity {
             address = extras.getString("address");
             name = extras.getString("name");
             total = extras.getInt("total");
+            id = extras.getString("id");
+            hour = extras.getInt("hour");
             //The key argument here must match that used in the other activity
         }
 
@@ -51,7 +53,8 @@ public class ReserveConfirm extends AppCompatActivity {
         tvTotal.setText("Your total bill is: "+total+" USD");
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("reservations");
+        databaseReference = firebaseDatabase.getReference("reservations/users");
+        databaseReferenceFields = firebaseDatabase.getReference("reservations/fields");
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -60,8 +63,8 @@ public class ReserveConfirm extends AppCompatActivity {
             public void onClick(View view) {
                 Long currentTime = System.currentTimeMillis()/1000;
                 timestamp = currentTime.toString();
-                databaseReference.child(mAuth.getCurrentUser().getUid()).child(timestamp).setValue(new Reservation(mAuth.getCurrentUser().getEmail(),"0",name,total));
-
+                databaseReference.child(mAuth.getCurrentUser().getUid()).child(timestamp).setValue(new Reservation(mAuth.getCurrentUser().getEmail(),id,name,total,hour));
+                databaseReferenceFields.child(id).child(Integer.toString(hour)).setValue(new ReservationFields(mAuth.getCurrentUser().getEmail()));
                 Intent intent = new Intent(getApplicationContext(),ReserveOK.class);
                 startActivity(intent);
             }
@@ -73,14 +76,22 @@ class Reservation {
     public String email;
     public String ID;
     public String Fname;
-    public String hour;
+    public int hour;
     public int total;
 
-    public Reservation (String email, String ID, String Fname, int total){
+    public Reservation (String email, String ID, String Fname, int total, int hour){
         this.email = email;
         this.ID = ID;
         this.Fname = Fname;
         this.total = total;
-        this.hour = "09h00";
+        this.hour = hour;
+    }
+}
+
+class ReservationFields {
+    public String user;
+
+    public ReservationFields (String user){
+        this.user = user;
     }
 }

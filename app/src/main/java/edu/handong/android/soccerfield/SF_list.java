@@ -112,6 +112,7 @@ public class SF_list extends AppCompatActivity {
                 intent.putExtra("opening", Afields[Integer.parseInt(v.getTag().toString())].getApertura());
                 intent.putExtra("address", Afields[Integer.parseInt(v.getTag().toString())].getDireccion());
                 intent.putExtra("cost", Afields[Integer.parseInt(v.getTag().toString())].getCost());
+                intent.putExtra("id", Afields[Integer.parseInt(v.getTag().toString())].getId());
                 startActivity(intent);
             }
         });
@@ -120,26 +121,27 @@ public class SF_list extends AppCompatActivity {
 }
 
 class Fields {
-    private String apertura;
-    private String cierre;
+    private int apertura;
+    private int cierre;
     private String direccion;
     private String nombre;
+    private String id;
     private String foto;
     private int cost;
 
-    public String getApertura() {
+    public int getApertura() {
         return apertura;
     }
 
-    public void setApertura(String apertura) {
+    public void setApertura(int apertura) {
         this.apertura = apertura;
     }
 
-    public String getCierre() {
+    public int getCierre() {
         return cierre;
     }
 
-    public void setCierre(String cierre) {
+    public void setCierre(int cierre) {
         this.cierre = cierre;
     }
 
@@ -173,5 +175,13 @@ class Fields {
 
     public void setCost(int cost) {
         this.cost = cost;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

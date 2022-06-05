@@ -24,6 +24,7 @@ public class SoccerFieldInfo extends AppCompatActivity {
     String address;
     String name;
     String img;
+    String id;
     int cost,total;
     FirebaseAuth mAuth;
 
@@ -39,6 +40,7 @@ public class SoccerFieldInfo extends AppCompatActivity {
         img="";
         cost=0;
         total=0;
+        id="";
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -50,6 +52,7 @@ public class SoccerFieldInfo extends AppCompatActivity {
             name = extras.getString("name");
             img = extras.getString("img");
             cost = extras.getInt("cost");
+            id = extras.getString("id");
             total = cost;
             //The key argument here must match that used in the other activity
         }
@@ -80,6 +83,8 @@ public class SoccerFieldInfo extends AppCompatActivity {
                     intent.putExtra("name", name);
                     intent.putExtra("address", address);
                     intent.putExtra("total", total);
+                    intent.putExtra("id", id);
+                    intent.putExtra("hour", 9);
                 }
                     startActivity(intent);
             }
