@@ -45,7 +45,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.857" />
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btnCheckReservation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="212dp"
+        android:background="#003d33"
+        android:ems="12"
+        android:text="Check reservations"
+        android:textColor="#FFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.633" />
 
     <Button
         android:id="@+id/btnLogInM"
@@ -59,7 +75,8 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCheckField" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCheckField"
+        tools:ignore="DuplicateClickableBoundsCheck" />
 
     <Button
         android:id="@+id/btnLogout"
@@ -90,21 +107,6 @@
         app:layout_constraintTop_toBottomOf="@+id/btnLogInM" />
 
 
-    <Button
-        android:id="@+id/changeLang"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:background="#003d33"
-        android:ems="10"
-        android:text="@string/changeLang"
-        android:textColor="#FFF"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/btnSignInM"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="@+id/btnSignInM" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -115,6 +117,7 @@
         app:layout_constraintTop_toBottomOf="@+id/soccerfield" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -124,51 +127,18 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:layout_editor_absoluteX="0dp">
 
-        <RadioGroup
-            android:id="@+id/rg_language"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/rb_english"
-                android:layout_width="54dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:checked="true"
-                android:padding="8dp"
-                android:textColor="#003d33"
-                android:textSize="20sp"
-                android:text="@string/english" />
-            <RadioButton
-                android:id="@+id/rb_spanish"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:checked="true"
-                android:padding="8dp"
-                android:textColor="#003d33"
-                android:textSize="20sp"
-                android:text="@string/spanish" />
-
-        </RadioGroup>
-
-
-
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:layout_margin="16dp"
-            tools:ignore="MissingConstraints">
+            android:hint="@string/select_city">
 
             <AutoCompleteTextView
                 android:id="@+id/auto_complete_txt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/select_city"
-                android:inputType="none"
                 android:textColor="#003d33"
                 android:textSize="30sp" />
 
@@ -176,6 +146,17 @@
 
     </LinearLayout>
 
+    <ToggleButton
+        android:id="@+id/tbLanguage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ToggleButton"
+        android:textOff="EN"
+        android:textOn="ES"
+        app:layout_constraintBottom_toBottomOf="@+id/soccerfield"
+        app:layout_constraintEnd_toEndOf="@+id/soccerfield"
+        app:layout_constraintStart_toEndOf="@+id/menu"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

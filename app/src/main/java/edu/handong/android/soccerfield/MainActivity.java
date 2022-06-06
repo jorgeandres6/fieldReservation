@@ -25,6 +25,7 @@ import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -34,10 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
     //Initialize variable
     TextView Menu, textview;
-    RadioGroup rgLanguage;
-    RadioButton rbEnglish,rbSpanish;
-    Button btncheckfield,btnloginm,btnlogout,btnsigninm;
-
+    Button btncheckfield,btnloginm,btnlogout,btnsigninm,btnCheckReservations;
+    ToggleButton tbLanguage;
 
     String[] cities = {"Quito","Ibarra"};
     String selectedCity = "Quito";
@@ -56,42 +55,30 @@ public class MainActivity extends AppCompatActivity {
 
         //Assign variable
         Menu=findViewById(R.id.menu);
-        rgLanguage=findViewById(R.id.rg_language);
-        rbEnglish=findViewById(R.id.rb_english);
-        rbSpanish=findViewById(R.id.rb_spanish);
         textview=findViewById(R.id.textView);
         btncheckfield=findViewById(R.id.btnCheckField);
         btnloginm=findViewById(R.id.btnLogInM);
         btnlogout=findViewById(R.id.btnLogout);
         btnsigninm=findViewById(R.id.btnSignInM);
+        tbLanguage=findViewById(R.id.tbLanguage);
+        btnCheckReservations = findViewById(R.id.btnCheckReservation);
 
-        //set listener on radio group
-        rgLanguage.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        btnCheckReservations.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                //check condition
-                switch (checkedId){
-                    case R.id.rb_english:
-                        //when english selected
-                        //Initialize string
-                        String language="en";
-                        //set locale
-                        setLocale(language);
-                        break;
-                    case R.id.rb_spanish:
-                        setLocale("es");
-                        break;
-
-                }
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),Reservations.class);
+                startActivity(intent);
             }
         });
 
-       Button changeLang = findViewById(R.id.changeLang);
-       changeLang.setOnClickListener(new View.OnClickListener() {
+        tbLanguage.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-           public void onClick(View view) {
-                //show AlertDialog to display list of languages, one can be selected
-       //         showChangeLanguageDialog();
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    setLocale("es");
+                }else{
+                    setLocale("en");
+                }
             }
         });
 
@@ -166,10 +153,12 @@ public class MainActivity extends AppCompatActivity {
             btnLogin.setVisibility(View.VISIBLE);
             btnSignin.setVisibility(View.VISIBLE);
             btnLogout.setVisibility(View.GONE);
+            btnCheckReservations.setVisibility(View.GONE);
         }else{
             btnLogin.setVisibility(View.GONE);
             btnSignin.setVisibility(View.GONE);
             btnLogout.setVisibility(View.VISIBLE);
+            btnCheckReservations.setVisibility(View.VISIBLE);
         }
     }
 
@@ -193,16 +182,11 @@ public class MainActivity extends AppCompatActivity {
         super.onConfigurationChanged(newConfig);
         //set strings from resources
         Menu.setText(R.string.menu);
-        rbEnglish.setText(R.string.english);
-        rbSpanish.setText(R.string.spanish);
         textview.setText(R.string.selection_info);
         btncheckfield.setText(R.string.CheckField);
         btnsigninm.setText(R.string.Sign_in);
         btnlogout.setText(R.string.LogOut);
         btnloginm.setText(R.string.Log_in);
-
-
-
     }
 
 

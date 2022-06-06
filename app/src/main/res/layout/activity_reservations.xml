@@ -43,11 +43,20 @@
         app:layout_constraintTop_toBottomOf="@+id/soccerfield"
         app:layout_constraintVertical_bias="0.933" />
 
-    <ListView
+    <ScrollView
         android:id="@+id/Reserve_sample"
         android:layout_width="409dp"
         android:layout_height="542dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="101dp" />
+        android:layout_marginTop="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/soccerfield">
+
+        <LinearLayout
+            android:id="@+id/llReservations"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"></LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
