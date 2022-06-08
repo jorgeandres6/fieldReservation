@@ -1,5 +1,6 @@
 package edu.handong.android.soccerfield;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,22 +9,28 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Map;
 
 public class ReserveConfirm extends AppCompatActivity {
 
     String address,name,id;
-    int total, hour;
+    int total, hour, selectedHour;
     TextView tvAddress, tvFname, tvTotal;
     Button btnReserve;
     DatabaseReference databaseReference, databaseReferenceFields;
     String timestamp;
     FirebaseAuth mAuth;
+    TimePicker TimePicker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +44,8 @@ public class ReserveConfirm extends AppCompatActivity {
         tvFname = findViewById(R.id.tvFnameR);
         tvTotal = findViewById(R.id.tvTotalR);
         btnReserve = findViewById(R.id.btnReserveR);
+        TimePicker = findViewById(R.id.timePicker1);
+        TimePicker.setIs24HourView(true);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -61,12 +70,29 @@ public class ReserveConfirm extends AppCompatActivity {
         btnReserve.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Long currentTime = System.currentTimeMillis()/1000;
-                timestamp = currentTime.toString();
-                databaseReference.child(mAuth.getCurrentUser().getUid()).child("r"+timestamp).setValue(new Reservation(mAuth.getCurrentUser().getEmail(),id,name,total,hour,"r"+timestamp));
-                databaseReferenceFields.child(id).child(Integer.toString(hour)).setValue(new ReservationFields(mAuth.getCurrentUser().getEmail()));
-                Intent intent = new Intent(getApplicationContext(),ReserveOK.class);
-                startActivity(intent);
+                selectedHour = TimePicker.getCurrentHour();
+                databaseReferenceFields.child(id).child(Integer.toString(selectedHour)).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.getValue() == null){
+
+                            Long currentTime = System.currentTimeMillis()/1000;
+                            timestamp = currentTime.toString();
+                            databaseReference.child(mAuth.getCurrentUser().getUid()).child("r"+timestamp).setValue(new Reservation(mAuth.getCurrentUser().getEmail(),id,name,total,selectedHour,"r"+timestamp));
+                            databaseReferenceFields.child(id).child(Integer.toString(selectedHour)).setValue(new ReservationFields(mAuth.getCurrentUser().getEmail()));
+                            Intent intent = new Intent(getApplicationContext(),ReserveOK.class);
+                            startActivity(intent);
+
+                        } else {
+                            Toast.makeText(ReserveConfirm.this, "Sorry, that time is not available", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
             }
         });
     }
