@@ -65,13 +65,14 @@ public class Update_sf_info extends AppCompatActivity {
         });
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("canchas").child(selectedCity.toLowerCase());
+
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Long currentTime = System.currentTimeMillis()/1000;
                 String timestamp = currentTime.toString();
+                databaseReference = firebaseDatabase.getReference("canchas").child(selectedCity.toLowerCase());
                 switch (selectedCity) {
                     case "Quito":
                         //Toast.makeText(Update_sf_info.this, "UIO", Toast.LENGTH_SHORT).show();
@@ -79,13 +80,16 @@ public class Update_sf_info extends AppCompatActivity {
                         break;
 
                     case "Ibarra":
-                        Toast.makeText(Update_sf_info.this, "IBR", Toast.LENGTH_SHORT).show();
+                        databaseReference.child(uuid+timestamp).setValue(new CreateField(etName.getText().toString(),etAddress.getText().toString(),"IBR"+timestamp,Integer.valueOf(etOHour.getText().toString()),Integer.valueOf(etCHour.getText().toString()),Integer.valueOf(etPrice.getText().toString())));
+                        //Toast.makeText(Update_sf_info.this, "IBR", Toast.LENGTH_SHORT).show();
                         break;
 
                     default:
                         //Toast.makeText(Update_sf_info.this, "UIO", Toast.LENGTH_SHORT).show();
                         databaseReference.setValue(new CreateField(etName.getText().toString(),etAddress.getText().toString(),"UIO"+timestamp,Integer.valueOf(etOHour.getText().toString()),Integer.valueOf(etCHour.getText().toString()),Integer.valueOf(etPrice.getText().toString())));
                 }
+                Toast.makeText(Update_sf_info.this, "Field added successfully", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
     }
