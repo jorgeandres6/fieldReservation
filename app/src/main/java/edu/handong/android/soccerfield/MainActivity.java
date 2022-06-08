@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     //Initialize variable
     TextView Menu, textview;
-    Button btncheckfield,btnloginm,btnlogout,btnsigninm,btnCheckReservations;
+    Button btncheckfield,btnloginm,btnlogout,btnsigninm,btnCheckReservations, btnAddField;
     ToggleButton tbLanguage;
 
     String[] cities = {"Quito","Ibarra"};
@@ -62,6 +62,15 @@ public class MainActivity extends AppCompatActivity {
         btnsigninm=findViewById(R.id.btnSignInM);
         tbLanguage=findViewById(R.id.tbLanguage);
         btnCheckReservations = findViewById(R.id.btnCheckReservation);
+        btnAddField = findViewById(R.id.btnAddFieldM);
+
+        btnAddField.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),Update_sf_info.class);
+                startActivity(intent);
+            }
+        });
 
         btnCheckReservations.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,11 +163,13 @@ public class MainActivity extends AppCompatActivity {
             btnSignin.setVisibility(View.VISIBLE);
             btnLogout.setVisibility(View.GONE);
             btnCheckReservations.setVisibility(View.GONE);
+            btnAddField.setVisibility(View.GONE);
         }else{
             btnLogin.setVisibility(View.GONE);
             btnSignin.setVisibility(View.GONE);
             btnLogout.setVisibility(View.VISIBLE);
             btnCheckReservations.setVisibility(View.VISIBLE);
+            btnAddField.setVisibility(View.VISIBLE);
         }
     }
 

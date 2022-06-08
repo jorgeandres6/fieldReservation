@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="Address"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName17"
+        app:layout_constraintEnd_toStartOf="@+id/etAddressUI"
         app:layout_constraintHorizontal_bias="0.145"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvFieldNameAU" />
@@ -53,10 +53,10 @@
         android:id="@+id/tvOHourAU"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="64dp"
         android:text="Opening hour"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName18"
-        app:layout_constraintHorizontal_bias="0.136"
+        app:layout_constraintEnd_toStartOf="@+id/etOHAUI"
+        app:layout_constraintHorizontal_bias="0.164"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvAddressAU" />
 
@@ -64,61 +64,65 @@
         android:id="@+id/tvCHourAU"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="56dp"
         android:text="Closing Hour"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName19"
-        app:layout_constraintHorizontal_bias="0.136"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/etCHAI"
         app:layout_constraintTop_toBottomOf="@+id/tvOHourAU" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName16"
+        android:id="@+id/etFieldNameUI"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
+        android:hint="Field name"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintHorizontal_bias="0.594"
         app:layout_constraintStart_toEndOf="@+id/tvFieldNameAU"
         app:layout_constraintTop_toBottomOf="@+id/soccerfield" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName17"
+        android:id="@+id/etAddressUI"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginEnd="48dp"
         android:ems="10"
+        android:hint="Address"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName16" />
+        app:layout_constraintTop_toBottomOf="@+id/etFieldNameUI" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName18"
+        android:id="@+id/etOHAUI"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginEnd="52dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
+        android:hint="Opening hour"
+        android:inputType="number"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName17" />
+        app:layout_constraintTop_toBottomOf="@+id/etAddressUI" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName19"
+        android:id="@+id/etCHAI"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginEnd="52dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
+        android:hint="Closing hour"
+        android:inputType="number"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName18" />
+        app:layout_constraintTop_toBottomOf="@+id/etOHAUI"
+        />
 
     <Button
         android:id="@+id/btnCancelAU"
@@ -148,38 +152,69 @@
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="244dp"
-        android:layout_height="143dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnAddFieldAU"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/scfield1" />
-
     <TextView
         android:id="@+id/tvCostAU"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="44dp"
         android:text="Cost per hour"
         app:layout_constraintEnd_toStartOf="@+id/etCostAU"
-        app:layout_constraintHorizontal_bias="0.034"
+        app:layout_constraintHorizontal_bias="0.228"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCHourAU" />
+        app:layout_constraintTop_toBottomOf="@+id/tvCHourAU"
+        android:inputType="number"/>
+
+    <TextView
+        android:id="@+id/tvCostAU3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="64dp"
+        android:text="City"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCostAU" />
 
     <EditText
         android:id="@+id/etCostAU"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginEnd="48dp"
         android:ems="10"
         android:hint="Cost per hour"
-        android:inputType="textPersonName"
+        android:inputType="number"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName19" />
+        app:layout_constraintTop_toBottomOf="@+id/etCHAI" />
 
+    <LinearLayout
+        android:id="@+id/linearLayoutUI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.622"
+        app:layout_constraintStart_toEndOf="@+id/tvCostAU3"
+        app:layout_constraintTop_toBottomOf="@+id/etCostAU">
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:hint="@string/select_city">
+
+            <AutoCompleteTextView
+                android:id="@+id/AUUI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/select_city"
+                android:textColor="#003d33"
+                android:textSize="20dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

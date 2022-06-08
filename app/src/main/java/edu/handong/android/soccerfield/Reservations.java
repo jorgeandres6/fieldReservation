@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -58,6 +59,7 @@ public class Reservations extends AppCompatActivity {
 
                 for (int j=0; j<k; j++){
                     add();
+
                 }
             }
 
@@ -73,7 +75,10 @@ public class Reservations extends AppCompatActivity {
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = firebaseDatabase.getReference();
-        DatabaseReference ref = databaseReference.child("reservations/users").child(mAuth.getCurrentUser().getUid()).child(Integer.toString(AReservations[i].getID_R()));
+        DatabaseReference ref = databaseReference.child("reservations/users").child(mAuth.getCurrentUser().getUid()).child(AReservations[i].getReservationID());
+
+        //DatabaseReference ref2 = databaseReference.child("reservations/users").child(mAuth.getCurrentUser().getUid()).child(Integer.toString(AReservations[i].getID_R()));
+
 
         View v = getLayoutInflater().inflate(R.layout.card_reservation,null);
         v.setTag(i);
@@ -88,13 +93,17 @@ public class Reservations extends AppCompatActivity {
 
         LL.addView(v);
 
+
+
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ref.removeValue();
-            }
-        });
 
+                ref.removeValue();
+                //Toast.makeText(getApplicationContext(),AReservations[1].getReservationID(),Toast.LENGTH_SHORT).show();
+            }
+
+        });
         i++;
     }
 }
@@ -104,7 +113,7 @@ class Reserves {
     private String Fname;
     private String id;
     private int total;
-    private int ID_R;
+    private String reservationID;
 
     public String getFname() {
         return Fname;
@@ -138,11 +147,11 @@ class Reserves {
         this.hour = hour;
     }
 
-    public int getID_R() {
-        return ID_R;
+    public String getReservationID() {
+        return reservationID;
     }
 
-    public void setID_R(int ID_R) {
-        this.ID_R = ID_R;
+    public void setID_R(String reservationID) {
+        this.reservationID = reservationID;
     }
 }

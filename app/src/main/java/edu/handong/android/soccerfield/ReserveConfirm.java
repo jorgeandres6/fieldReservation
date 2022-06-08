@@ -63,7 +63,7 @@ public class ReserveConfirm extends AppCompatActivity {
             public void onClick(View view) {
                 Long currentTime = System.currentTimeMillis()/1000;
                 timestamp = currentTime.toString();
-                databaseReference.child(mAuth.getCurrentUser().getUid()).child(timestamp).setValue(new Reservation(mAuth.getCurrentUser().getEmail(),id,name,total,hour));
+                databaseReference.child(mAuth.getCurrentUser().getUid()).child("r"+timestamp).setValue(new Reservation(mAuth.getCurrentUser().getEmail(),id,name,total,hour,"r"+timestamp));
                 databaseReferenceFields.child(id).child(Integer.toString(hour)).setValue(new ReservationFields(mAuth.getCurrentUser().getEmail()));
                 Intent intent = new Intent(getApplicationContext(),ReserveOK.class);
                 startActivity(intent);
@@ -78,13 +78,15 @@ class Reservation {
     public String Fname;
     public int hour;
     public int total;
+    public String reservationID;
 
-    public Reservation (String email, String ID, String Fname, int total, int hour){
+    public Reservation (String email, String ID, String Fname, int total, int hour, String rID){
         this.email = email;
         this.ID = ID;
         this.Fname = Fname;
         this.total = total;
         this.hour = hour;
+        this.reservationID = rID;
     }
 }
 
