@@ -28,6 +28,7 @@ public class Reservations extends AppCompatActivity {
     Reserves[] AReservations = new Reserves[10];
     int i, k;
     LinearLayout LL;
+    Button btnCancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,14 @@ public class Reservations extends AppCompatActivity {
         i = 0;
         k = 0;
         LL = findViewById(R.id.llReservations);
+        btnCancel = findViewById(R.id.btnOk);
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -76,8 +85,7 @@ public class Reservations extends AppCompatActivity {
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = firebaseDatabase.getReference();
         DatabaseReference ref = databaseReference.child("reservations/users").child(mAuth.getCurrentUser().getUid()).child(AReservations[i].getReservationID());
-
-        //DatabaseReference ref2 = databaseReference.child("reservations/users").child(mAuth.getCurrentUser().getUid()).child(Integer.toString(AReservations[i].getID_R()));
+        DatabaseReference ref2 = databaseReference.child("reservations/fields").child(AReservations[i].getID()).child(Integer.toString(AReservations[i].getHour()));
 
 
         View v = getLayoutInflater().inflate(R.layout.card_reservation,null);
@@ -93,14 +101,13 @@ public class Reservations extends AppCompatActivity {
 
         LL.addView(v);
 
-
-
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 ref.removeValue();
-                //Toast.makeText(getApplicationContext(),AReservations[1].getReservationID(),Toast.LENGTH_SHORT).show();
+                ref2.removeValue();
+                Toast.makeText(Reservations.this, "Reservation cancelled successfully", Toast.LENGTH_SHORT).show();
+                finish();
             }
 
         });
@@ -111,7 +118,7 @@ public class Reservations extends AppCompatActivity {
 class Reserves {
     private int hour;
     private String Fname;
-    private String id;
+    private String ID;
     private int total;
     private String reservationID;
 
@@ -131,12 +138,12 @@ class Reserves {
         this.total = total;
     }
 
-    public String getId() {
-        return id;
+    public String getID() {
+        return ID;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(String ID) {
+        this.ID = ID;
     }
 
     public int getHour() {
