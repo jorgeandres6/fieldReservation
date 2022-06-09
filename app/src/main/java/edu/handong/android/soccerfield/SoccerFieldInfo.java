@@ -19,8 +19,8 @@ import com.squareup.picasso.Picasso;
 
 public class SoccerFieldInfo extends AppCompatActivity {
 
-    String opening;
-    String close;
+    int opening;
+    int close;
     String address;
     String name;
     String img;
@@ -33,8 +33,6 @@ public class SoccerFieldInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_soccer_field_info);
 
-        opening="";
-        close="";
         address="";
         name="";
         img="";
@@ -46,8 +44,8 @@ public class SoccerFieldInfo extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            opening = extras.getString("opening");
-            close = extras.getString("close");
+            opening = extras.getInt("opening");
+            close = extras.getInt("close");
             address = extras.getString("address");
             name = extras.getString("name");
             img = extras.getString("img");
@@ -61,6 +59,7 @@ public class SoccerFieldInfo extends AppCompatActivity {
         TextView tvAddress = findViewById(R.id.tvFaddressI);
         TextView tvCost = findViewById(R.id.tvFcostI);
         TextView tvTotal = findViewById(R.id.tvTotalI);
+        TextView tvOHours = findViewById(R.id.tvOHour);
         ImageView Fimg = findViewById(R.id.ivFimgI);
         Button btnReserve = findViewById(R.id.btnMakeReservation);
 
@@ -68,6 +67,7 @@ public class SoccerFieldInfo extends AppCompatActivity {
         tvAddress.setText(address);
         tvCost.setText(cost+" USD/hour");
         tvTotal.setText("Total to pay: "+total+" USD");
+        tvOHours.setText("Operating hours: "+opening+" ~ "+close);
 
         Picasso.get().load(img).into(Fimg);
 
@@ -84,7 +84,8 @@ public class SoccerFieldInfo extends AppCompatActivity {
                     intent.putExtra("address", address);
                     intent.putExtra("total", total);
                     intent.putExtra("id", id);
-                    intent.putExtra("hour", 9);
+                    intent.putExtra("opening", opening);
+                    intent.putExtra("closing", close);
                 }
                     startActivity(intent);
             }

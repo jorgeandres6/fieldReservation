@@ -20,12 +20,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Reservations extends AppCompatActivity {
 
     DatabaseReference getData;
     int size;
     FirebaseAuth mAuth;
-    Reserves[] AReservations = new Reserves[10];
+    List <Reserves> AReservations = new ArrayList<Reserves>();
     int i, k;
     LinearLayout LL;
     Button btnCancel;
@@ -59,7 +62,7 @@ public class Reservations extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Reserves reserve = snapshot.getValue(Reserves.class);
-                    AReservations[i] = reserve;
+                    AReservations.add(reserve);
                     i++;
                     k++;
                 }
@@ -84,8 +87,8 @@ public class Reservations extends AppCompatActivity {
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = firebaseDatabase.getReference();
-        DatabaseReference ref = databaseReference.child("reservations/users").child(mAuth.getCurrentUser().getUid()).child(AReservations[i].getReservationID());
-        DatabaseReference ref2 = databaseReference.child("reservations/fields").child(AReservations[i].getID()).child(Integer.toString(AReservations[i].getHour()));
+        DatabaseReference ref = databaseReference.child("reservations/users").child(mAuth.getCurrentUser().getUid()).child(AReservations.get(i).getReservationID());
+        DatabaseReference ref2 = databaseReference.child("reservations/fields").child(AReservations.get(i).getID()).child(Integer.toString(AReservations.get(i).getHour()));
 
 
         View v = getLayoutInflater().inflate(R.layout.card_reservation,null);
@@ -95,9 +98,9 @@ public class Reservations extends AppCompatActivity {
         TextView tvCost = v.findViewById(R.id.tvCostCR);
         Button btnCancel = v.findViewById(R.id.btnCancel_reservation);
 
-        tvTitle.setText(AReservations[i].getFname());
-        tvHour.setText(Integer.toString(AReservations[i].getHour()));
-        tvCost.setText(Integer.toString(AReservations[i].getTotal()));
+        tvTitle.setText(AReservations.get(i).getFname());
+        tvHour.setText(Integer.toString(AReservations.get(i).getHour()));
+        tvCost.setText(Integer.toString(AReservations.get(i).getTotal()));
 
         LL.addView(v);
 

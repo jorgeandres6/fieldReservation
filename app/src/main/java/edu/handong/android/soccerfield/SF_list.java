@@ -25,11 +25,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SF_list extends AppCompatActivity {
 
     LinearLayout LL;
-    Fields[] Afields = new Fields[10];
+    List<Fields> Afields = new ArrayList<Fields>();
     int i, k;
     DatabaseReference getData;
     String city = "";
@@ -64,7 +66,8 @@ public class SF_list extends AppCompatActivity {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Fields fields = snapshot.getValue(Fields.class);
                     fields.setFoto(snapshot.child("foto").getValue().toString());
-                    Afields[i] = fields;
+                    //Afields[i] = fields;
+                    Afields.add(fields);
                     i++;
                     k++;
                 }
@@ -95,8 +98,11 @@ public class SF_list extends AppCompatActivity {
         ImageView img = v.findViewById(R.id.imgCard);
         TextView TV = v.findViewById(R.id.TVname);
 
-        TV.setText(Afields[i].getNombre());
-        Picasso.get().load(Afields[i].getFoto()).into(img);
+        /*TV.setText(Afields[i].getNombre());
+        Picasso.get().load(Afields[i].getFoto()).into(img);*/
+
+        TV.setText(Afields.get(i).getNombre());
+        Picasso.get().load(Afields.get(i).getFoto()).into(img);
 
         LL.addView(v);
         i++;
@@ -106,13 +112,22 @@ public class SF_list extends AppCompatActivity {
             public void onClick(View view) {
                 //Toast.makeText(getApplicationContext(),Afields[Integer.parseInt(v.getTag().toString())].getNombre(),Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(),SoccerFieldInfo.class);
-                intent.putExtra("name", Afields[Integer.parseInt(v.getTag().toString())].getNombre());
+                /*intent.putExtra("name", Afields[Integer.parseInt(v.getTag().toString())].getNombre());
                 intent.putExtra("close", Afields[Integer.parseInt(v.getTag().toString())].getCierre());
                 intent.putExtra("img", Afields[Integer.parseInt(v.getTag().toString())].getFoto());
                 intent.putExtra("opening", Afields[Integer.parseInt(v.getTag().toString())].getApertura());
                 intent.putExtra("address", Afields[Integer.parseInt(v.getTag().toString())].getDireccion());
                 intent.putExtra("cost", Afields[Integer.parseInt(v.getTag().toString())].getCost());
-                intent.putExtra("id", Afields[Integer.parseInt(v.getTag().toString())].getId());
+                intent.putExtra("id", Afields[Integer.parseInt(v.getTag().toString())].getId());*/
+
+                intent.putExtra("name", Afields.get(Integer.parseInt(v.getTag().toString())).getNombre());
+                intent.putExtra("close", Afields.get(Integer.parseInt(v.getTag().toString())).getCierre());
+                intent.putExtra("img", Afields.get(Integer.parseInt(v.getTag().toString())).getFoto());
+                intent.putExtra("opening", Afields.get(Integer.parseInt(v.getTag().toString())).getApertura());
+                intent.putExtra("address", Afields.get(Integer.parseInt(v.getTag().toString())).getDireccion());
+                intent.putExtra("cost", Afields.get(Integer.parseInt(v.getTag().toString())).getCost());
+                intent.putExtra("id", Afields.get(Integer.parseInt(v.getTag().toString())).getId());
+
                 startActivity(intent);
             }
         });

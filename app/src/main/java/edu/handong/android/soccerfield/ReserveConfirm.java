@@ -24,7 +24,7 @@ import java.util.Map;
 public class ReserveConfirm extends AppCompatActivity {
 
     String address,name,id;
-    int total, hour, selectedHour;
+    int total, selectedHour, opening, closing;
     TextView tvAddress, tvFname, tvTotal;
     Button btnReserve;
     DatabaseReference databaseReference, databaseReferenceFields;
@@ -53,7 +53,8 @@ public class ReserveConfirm extends AppCompatActivity {
             name = extras.getString("name");
             total = extras.getInt("total");
             id = extras.getString("id");
-            hour = extras.getInt("hour");
+            opening = extras.getInt("opening");
+            closing = extras.getInt("closing");
             //The key argument here must match that used in the other activity
         }
 
@@ -75,14 +76,16 @@ public class ReserveConfirm extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if (snapshot.getValue() == null){
-
-                            Long currentTime = System.currentTimeMillis()/1000;
-                            timestamp = currentTime.toString();
-                            databaseReference.child(mAuth.getCurrentUser().getUid()).child("r"+timestamp).setValue(new Reservation(mAuth.getCurrentUser().getEmail(),id,name,total,selectedHour,"r"+timestamp));
-                            databaseReferenceFields.child(id).child(Integer.toString(selectedHour)).setValue(new ReservationFields(mAuth.getCurrentUser().getEmail()));
-                            Intent intent = new Intent(getApplicationContext(),ReserveOK.class);
-                            startActivity(intent);
-
+                            if (selectedHour > opening && selectedHour < closing){
+                                Long currentTime = System.currentTimeMillis()/1000;
+                                timestamp = currentTime.toString();
+                                databaseReference.child(mAuth.getCurrentUser().getUid()).child("r"+timestamp).setValue(new Reservation(mAuth.getCurrentUser().getEmail(),id,name,total,selectedHour,"r"+timestamp));
+                                databaseReferenceFields.child(id).child(Integer.toString(selectedHour)).setValue(new ReservationFields(mAuth.getCurrentUser().getEmail()));
+                                Intent intent = new Intent(getApplicationContext(),ReserveOK.class);
+                                startActivity(intent);
+                            } else{
+                                Toast.makeText(ReserveConfirm.this, "Please, select an hour within the opening a closing times", Toast.LENGTH_SHORT).show();
+                            }
                         } else {
                             Toast.makeText(ReserveConfirm.this, "Sorry, that time is not available", Toast.LENGTH_SHORT).show();
                         }
