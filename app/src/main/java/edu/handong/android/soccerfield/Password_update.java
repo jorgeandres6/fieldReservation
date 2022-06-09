@@ -1,3 +1,5 @@
+//FOR FUTURE IMPLEMENTATION
+
 package edu.handong.android.soccerfield;
 
 import androidx.appcompat.app.AppCompatActivity;

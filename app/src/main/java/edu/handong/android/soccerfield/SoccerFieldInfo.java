@@ -13,12 +13,10 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
-/**
- *this class shows the information for all the soccer fields
- */
 
 public class SoccerFieldInfo extends AppCompatActivity {
 
+    //DECLARE VARIABLES
     int opening;
     int close;
     String address;
@@ -33,6 +31,7 @@ public class SoccerFieldInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_soccer_field_info);
 
+        //INITIALIZE VARIABLES
         address="";
         name="";
         img="";
@@ -40,21 +39,10 @@ public class SoccerFieldInfo extends AppCompatActivity {
         total=0;
         id="";
 
+        //REFERENCE TO FIREBASE AUTHORIZATION
         mAuth = FirebaseAuth.getInstance();
 
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            opening = extras.getInt("opening");
-            close = extras.getInt("close");
-            address = extras.getString("address");
-            name = extras.getString("name");
-            img = extras.getString("img");
-            cost = extras.getInt("cost");
-            id = extras.getString("id");
-            total = cost;
-            //The key argument here must match that used in the other activity
-        }
-
+        //REFERENCE TO UI ELEMENTS
         TextView tvName = findViewById(R.id.tvFnameI);
         TextView tvAddress = findViewById(R.id.tvFaddressI);
         TextView tvCost = findViewById(R.id.tvFcostI);
@@ -63,29 +51,45 @@ public class SoccerFieldInfo extends AppCompatActivity {
         ImageView Fimg = findViewById(R.id.ivFimgI);
         Button btnReserve = findViewById(R.id.btnMakeReservation);
 
-        tvName.setText(name);
-        tvAddress.setText(address);
-        tvCost.setText(cost+" USD/hour");
-        tvTotal.setText("Total to pay: "+total+" USD");
-        tvOHours.setText("Operating hours: "+opening+" ~ "+close);
+        //RETRIEVE INFORMATION FROM PREVIOUS ACTIVITY
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) { //CHECH IF THERE'S ANY DATA SENT
+            opening = extras.getInt("opening"); //OPENING HOUR
+            close = extras.getInt("close"); //CLOSING HOUR
+            address = extras.getString("address"); //FIELD ADDRESS
+            name = extras.getString("name"); //FIELD NAME
+            img = extras.getString("img"); //FIELD IMAGE
+            cost = extras.getInt("cost"); //COST PER HOUR
+            id = extras.getString("id"); //FIELD ID
+            total = cost;
+        }
 
-        Picasso.get().load(img).into(Fimg);
+        //SET DATA INTO UI ELEMENTS
+        tvName.setText(name); //FIELD NAME
+        tvAddress.setText(address); //FIELD ADDRESS
+        tvCost.setText(cost+" USD/hour"); //COST PER HOUR
+        tvTotal.setText("Total to pay: "+total+" USD"); //TOTAL VALUE TO PAY - FURTHER IMPLEMENTATION FOR MULTIPLE HOURS RESERVATION
+        tvOHours.setText("Operating hours: "+opening+" ~ "+close); //OPERATING SHCEDULE
+
+        Picasso.get().load(img).into(Fimg);//RENDER IMAGE
 
         btnReserve.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent;
-                FirebaseUser user = mAuth.getCurrentUser();
-                if (user == null){
-                    intent = new Intent(getApplicationContext(),LoginAdmin.class);
-                }else{
-                    intent = new Intent(getApplicationContext(),ReserveConfirm.class);
-                    intent.putExtra("name", name);
-                    intent.putExtra("address", address);
-                    intent.putExtra("total", total);
-                    intent.putExtra("id", id);
-                    intent.putExtra("opening", opening);
-                    intent.putExtra("closing", close);
+                FirebaseUser user = mAuth.getCurrentUser(); //REFERENCE TO CURRENT USER USING FIREBASE METHOD
+                if (user == null){ //IF NO USER IS LOGGED IN
+                    intent = new Intent(getApplicationContext(),LoginAdmin.class); //LAUNCH LOGIN ACTIVITY
+                }else{ //IF THERE'S A USER LOGGED IN
+                    intent = new Intent(getApplicationContext(),ReserveConfirm.class); //LAUNCH RESERVE CONFIRMATION ACTIVITY
+
+                    // PASS DATA TO NEXT ACTIVITY
+                    intent.putExtra("name", name); //FIELD NAME
+                    intent.putExtra("address", address); //FIELD ADDRESS
+                    intent.putExtra("total", total); //TOTAL VALUE TO PAY
+                    intent.putExtra("id", id); //FIELD ID
+                    intent.putExtra("opening", opening); //OPENING HOUR
+                    intent.putExtra("closing", close); //CLOSING HOUR
                 }
                     startActivity(intent);
             }

@@ -30,6 +30,7 @@ import java.util.List;
 
 public class SF_list extends AppCompatActivity {
 
+    //DECLARING VARIABLES
     LinearLayout LL;
     List<Fields> Afields = new ArrayList<Fields>();
     int i, k;
@@ -43,91 +44,76 @@ public class SF_list extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sf_list);
 
-        LL = findViewById(R.id.LinL);
+        //INITIALIZE VARIABLES
         i = 0;
         k = 0;
         prueba = "";
-        SVFields = findViewById(R.id.SVFields);
 
+        //RETRIEVE DATA FROM PREVIOUS ACTIVITY
         Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            city = extras.getString("city");
+        if (extras != null) { //IF THERE'S ANY DATA
+            city = extras.getString("city"); //RETRIEVE PREVIOUS SELECTED CITY NAME
         }
 
+        //REFERENCE TO FIREBASE RT-DB
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = firebaseDatabase.getReference();
-        //getImage = databaseReference.child("canchas").child("quito").child("1").child("fields").child("0").child("img");
-        getData = databaseReference.child("canchas").child(city);
+        getData = databaseReference.child("canchas").child(city); //REFERENCE TO SOCCER FIELDS' DATA BRANCH
+
+        //REFERENCE TO UI ELEMENTS
+        SVFields = findViewById(R.id.SVFields);
+        LL = findViewById(R.id.LinL);
+
 
         getData.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Fields fields = snapshot.getValue(Fields.class);
-                    fields.setFoto(snapshot.child("foto").getValue().toString());
-                    //Afields[i] = fields;
-                    Afields.add(fields);
-                    i++;
-                    k++;
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) { //LOOP TROUGH CHILD ELEMENTS IN SOCCER FIELDS' DATA BRANCH
+                    Fields fields = snapshot.getValue(Fields.class); //GET A CHILD ELEMENT
+                    Afields.add(fields); //ADD THE CHILD ELEMENT TO THE ARRAY LIST FOR FURTHER ITERATION
                 }
-
-                i=0;
-
-               for (int j=0; j<k; j++){
-                    add();
+               for (int j=0; j<Afields.size(); j++){ //LOOP TROUGH THE ARRAY LIST AND ADD ELEMENTS TO UI
+                    add(j);
                 }
 
             }
 
-            // this will called when any problem
-            // occurs in getting data
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                // we are showing that error message in toast
-                Toast.makeText(SF_list.this, "Error Loading Image", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SF_list.this, "Error Loading Image", Toast.LENGTH_SHORT).show(); //ERROR MESSAGE ON IMAGE RENDERING
             }
         });
 
     }
 
-    private void add(){
+    private void add(int i){ //METHOD FOR ADDING SOCCER FIELDS' INFO CARD INTO THE UI
 
-        View v = getLayoutInflater().inflate(R.layout.card,null);
-        v.setTag(i);
-        ImageView img = v.findViewById(R.id.imgCard);
-        TextView TV = v.findViewById(R.id.TVname);
+        View v = getLayoutInflater().inflate(R.layout.card,null); //REFERENCE TO CARD RESOURCE
+        v.setTag(i); //SETTING AN IDENTIFICATION TO EACH CARD
 
-        /*TV.setText(Afields[i].getNombre());
-        Picasso.get().load(Afields[i].getFoto()).into(img);*/
+        //REFERENCE TO UI ELEMENTS
+        ImageView img = v.findViewById(R.id.imgCard); //SOCCER FIELD IMAGE
+        TextView TV = v.findViewById(R.id.TVname); //SOCCER FIELD NAME
 
-        TV.setText(Afields.get(i).getNombre());
-        Picasso.get().load(Afields.get(i).getFoto()).into(img);
+        //SETTING VALUES TO UI ELEMENTS
+        TV.setText(Afields.get(i).getNombre()); //SOCCER FIELD NAME
+        Picasso.get().load(Afields.get(i).getFoto()).into(img); //RENDER IMAGE
 
+        //ADD CARD TO THE UI
         LL.addView(v);
-        i++;
 
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Toast.makeText(getApplicationContext(),Afields[Integer.parseInt(v.getTag().toString())].getNombre(),Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(),SoccerFieldInfo.class);
-                /*intent.putExtra("name", Afields[Integer.parseInt(v.getTag().toString())].getNombre());
-                intent.putExtra("close", Afields[Integer.parseInt(v.getTag().toString())].getCierre());
-                intent.putExtra("img", Afields[Integer.parseInt(v.getTag().toString())].getFoto());
-                intent.putExtra("opening", Afields[Integer.parseInt(v.getTag().toString())].getApertura());
-                intent.putExtra("address", Afields[Integer.parseInt(v.getTag().toString())].getDireccion());
-                intent.putExtra("cost", Afields[Integer.parseInt(v.getTag().toString())].getCost());
-                intent.putExtra("id", Afields[Integer.parseInt(v.getTag().toString())].getId());*/
-
-                intent.putExtra("name", Afields.get(Integer.parseInt(v.getTag().toString())).getNombre());
-                intent.putExtra("close", Afields.get(Integer.parseInt(v.getTag().toString())).getCierre());
-                intent.putExtra("img", Afields.get(Integer.parseInt(v.getTag().toString())).getFoto());
-                intent.putExtra("opening", Afields.get(Integer.parseInt(v.getTag().toString())).getApertura());
-                intent.putExtra("address", Afields.get(Integer.parseInt(v.getTag().toString())).getDireccion());
-                intent.putExtra("cost", Afields.get(Integer.parseInt(v.getTag().toString())).getCost());
-                intent.putExtra("id", Afields.get(Integer.parseInt(v.getTag().toString())).getId());
-
+                Intent intent = new Intent(getApplicationContext(),SoccerFieldInfo.class); //LAUNCH SOCCER FIELD'S INFO ACTIVITY
+                //TRANSFER DATA TO NEXT ACTIVITY
+                intent.putExtra("name", Afields.get(Integer.parseInt(v.getTag().toString())).getNombre()); //FIELD NAME
+                intent.putExtra("close", Afields.get(Integer.parseInt(v.getTag().toString())).getCierre()); //FIELD CLOSING HOUR
+                intent.putExtra("img", Afields.get(Integer.parseInt(v.getTag().toString())).getFoto()); //FIELD IMAGE
+                intent.putExtra("opening", Afields.get(Integer.parseInt(v.getTag().toString())).getApertura()); //FIELD OPENING HOUR
+                intent.putExtra("address", Afields.get(Integer.parseInt(v.getTag().toString())).getDireccion()); //FIELD ADDRESS
+                intent.putExtra("cost", Afields.get(Integer.parseInt(v.getTag().toString())).getCost()); //FIELD COST PER HOUR
+                intent.putExtra("id", Afields.get(Integer.parseInt(v.getTag().toString())).getId()); //FIELD ID
                 startActivity(intent);
             }
         });
@@ -135,7 +121,9 @@ public class SF_list extends AppCompatActivity {
 
 }
 
-class Fields {
+class Fields { //CLASS FOR RETRIEVING DATA FROM FIREBASE RT-DB FIELDS' INFO BRANCH
+
+    //DECLARE VARIABLES ACCORDING TO FIREBASE RT-DB FIELDS NAME
     private int apertura;
     private int cierre;
     private String direccion;
@@ -144,6 +132,7 @@ class Fields {
     private String foto;
     private int cost;
 
+    //GETTERS AND SETTERS
     public int getApertura() {
         return apertura;
     }

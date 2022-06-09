@@ -35,16 +35,14 @@ public class MainActivity extends AppCompatActivity {
 
     //Initialize variable
     TextView Menu, textview;
-    Button btncheckfield,btnloginm,btnlogout,btnsigninm,btnCheckReservations, btnAddField;
+    Button btncheckfield,btnloginm,btnlogout,btnsigninm,btnCheckReservations, btnAddField, btnReserve, btnLogin, btnSignin, btnLogout;
     ToggleButton tbLanguage;
-
-    String[] cities = {"Quito","Ibarra"};
-    String selectedCity = "Quito";
-
     AutoCompleteTextView autoCompleteText;
     ArrayAdapter<String> adapterItems;
-
     FirebaseAuth mAuth;
+
+    String[] cities = {"Quito","Ibarra"}; //AVAILABLE CITIES ARRAY
+    String selectedCity = "Quito"; //SELECTED CITY VARIABLE, DEFAULT VALUE "QUITO"
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
      //   loadLocale();
         setContentView(R.layout.activity_main);
 
-        //Assign variable
+        //REFERENCE TO UI ELEMENTS
         Menu=findViewById(R.id.menu);
         textview=findViewById(R.id.textView);
         btncheckfield=findViewById(R.id.btnCheckField);
@@ -63,11 +61,20 @@ public class MainActivity extends AppCompatActivity {
         tbLanguage=findViewById(R.id.tbLanguage);
         btnCheckReservations = findViewById(R.id.btnCheckReservation);
         btnAddField = findViewById(R.id.btnAddFieldM);
+        btnReserve = findViewById(R.id.btnCheckField);
+        btnLogin = findViewById(R.id.btnLogInM);
+        btnSignin = findViewById(R.id.btnSignInM);
+        btnLogout = findViewById(R.id.btnLogout);
+
+        //ASSIGNING VALUES TO VARIABLES
+        autoCompleteText = findViewById(R.id.auto_complete_txt);
+        adapterItems = new ArrayAdapter<String>(this,R.layout.items,cities);
+        mAuth = FirebaseAuth.getInstance();
 
         btnAddField.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),Update_sf_info.class);
+                Intent intent = new Intent(getApplicationContext(),Update_sf_info.class); //LAUNCH ACTIVITY FOR ADDING A NEW FIELD
                 startActivity(intent);
             }
         });
@@ -75,12 +82,12 @@ public class MainActivity extends AppCompatActivity {
         btnCheckReservations.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),Reservations.class);
+                Intent intent = new Intent(getApplicationContext(),Reservations.class); //LAUNCH RESERVATION MADE CHECKING ACTIVITY
                 startActivity(intent);
             }
         });
 
-        tbLanguage.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        tbLanguage.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { //SELECTING BETWEEN DIFFERENT LANGUAGES
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b){
@@ -91,22 +98,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-       autoCompleteText = findViewById(R.id.auto_complete_txt);
-
-       adapterItems = new ArrayAdapter<String>(this,R.layout.items,cities);
-
-       mAuth = FirebaseAuth.getInstance();
-
-       Button btnReserve = findViewById(R.id.btnCheckField);
-       Button btnLogin = findViewById(R.id.btnLogInM);
-       Button btnSignin = findViewById(R.id.btnSignInM);
-       Button btnLogout = findViewById(R.id.btnLogout);
-
        btnReserve.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               Intent intent = new Intent(getApplicationContext(),SF_list.class);
-               intent.putExtra("city",selectedCity.toLowerCase(Locale.ROOT));
+               Intent intent = new Intent(getApplicationContext(),SF_list.class); //LAUNCH LIST OF SOCCER FIELDS ACTIVITIES
+               intent.putExtra("city",selectedCity.toLowerCase()); //PASS CITY SELECTED
                startActivity(intent);
            }
        });
@@ -114,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
        btnLogin.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               Intent intent = new Intent(getApplicationContext(),LoginAdmin.class);
+               Intent intent = new Intent(getApplicationContext(),LoginAdmin.class); //LAUNCH LOGIN ACTIVITY
                startActivity(intent);
            }
        });
@@ -122,8 +118,8 @@ public class MainActivity extends AppCompatActivity {
        btnSignin.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               finish();
-               Intent intent = new Intent(getApplicationContext(),Signin_ad.class);
+               finish(); //END ACTIVITY FOR REFRESHMENT
+               Intent intent = new Intent(getApplicationContext(),Signin_ad.class); //LAUNCH SIGN IN ACTIVITY
                startActivity(intent);
            }
        });
@@ -131,20 +127,19 @@ public class MainActivity extends AppCompatActivity {
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mAuth.signOut();
+                mAuth.signOut(); //LOGOUT USING FIREBASE METHOD
                 Intent intent = getIntent();
-                finish();
-                startActivity(intent);
+                finish(); // FINISH ACTIVITY
+                startActivity(intent); //FOR REFRESHMENT
             }
         });
 
-       autoCompleteText.setAdapter(adapterItems);
+       autoCompleteText.setAdapter(adapterItems); //FOR POPULATING THE DROPDOWN LIST
 
        autoCompleteText.setOnItemClickListener(new AdapterView.OnItemClickListener() {
            @Override
            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               selectedCity = parent.getItemAtPosition(position).toString();
-               //Toast.makeText(getApplicationContext(),"City: "+city,Toast.LENGTH_SHORT).show();
+               selectedCity = parent.getItemAtPosition(position).toString(); //GET THE SELECTED CITY IN THE DROPDOWN LIST
            }
        });
 
@@ -153,12 +148,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
 
+        //REFER TO UI ELEMENTS
         Button btnLogin = findViewById(R.id.btnLogInM);
         Button btnSignin = findViewById(R.id.btnSignInM);
         Button btnLogout = findViewById(R.id.btnLogout);
 
         super.onResume();
-        if (mAuth.getCurrentUser() == null){
+
+        if (mAuth.getCurrentUser() == null){ //DEPENDING IF THE USER IS LOGGED IN SOME BUTTONS ARE SHOWN AND OTHERS NOT
             btnLogin.setVisibility(View.VISIBLE);
             btnSignin.setVisibility(View.VISIBLE);
             btnLogout.setVisibility(View.GONE);
@@ -173,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void setLocale(String language) {
+    private void setLocale(String language) { //SETTING LANGUAGE CONFIG
         //Initialize resources
         Resources resources = getResources();
         //Initialize metrics

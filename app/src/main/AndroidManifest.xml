@@ -24,19 +24,10 @@
             android:name=".SF_admin"
             android:exported="false" />
         <activity
-            android:name=".Reservation_info"
-            android:exported="false" />
-        <activity
             android:name=".Reservations"
             android:exported="false" />
         <activity
             android:name=".Password_update"
-            android:exported="false" />
-        <activity
-            android:name=".field_admin"
-            android:exported="false" />
-        <activity
-            android:name=".Cancel_Reservation"
             android:exported="false" />
         <activity
             android:name=".BalanceAdmin"
@@ -48,9 +39,6 @@
             android:name=".LoginAdmin"
             android:exported="false" />
         <activity
-            android:name=".CheckReservation"
-            android:exported="false" />
-        <activity
             android:name=".ReserveOK"
             android:exported="false" />
         <activity
@@ -58,12 +46,6 @@
             android:exported="false" />
         <activity
             android:name=".SoccerFieldInfo"
-            android:exported="false" />
-        <activity
-            android:name=".ChooseField"
-            android:exported="false" />
-        <activity
-            android:name=".FieldSearch"
             android:exported="false" />
         <activity
             android:name=".MainActivity"/>

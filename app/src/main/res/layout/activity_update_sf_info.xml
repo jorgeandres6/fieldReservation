@@ -32,8 +32,8 @@
         android:id="@+id/tvFieldNameAU"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="48dp"
         android:text="Field name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/soccerfield" />
@@ -42,10 +42,10 @@
         android:id="@+id/tvAddressAU"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="40dp"
         android:text="Address"
         app:layout_constraintEnd_toStartOf="@+id/etAddressUI"
-        app:layout_constraintHorizontal_bias="0.145"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvFieldNameAU" />
 
@@ -53,10 +53,10 @@
         android:id="@+id/tvOHourAU"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="44dp"
         android:text="Opening hour"
         app:layout_constraintEnd_toStartOf="@+id/etOHAUI"
-        app:layout_constraintHorizontal_bias="0.164"
+        app:layout_constraintHorizontal_bias="0.549"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvAddressAU" />
 
@@ -64,8 +64,8 @@
         android:id="@+id/tvCHourAU"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="56dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="32dp"
         android:text="Closing Hour"
         app:layout_constraintEnd_toStartOf="@+id/etCHAI"
         app:layout_constraintTop_toBottomOf="@+id/tvOHourAU" />
@@ -74,13 +74,13 @@
         android:id="@+id/etFieldNameUI"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="Field name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.594"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toEndOf="@+id/tvFieldNameAU"
         app:layout_constraintTop_toBottomOf="@+id/soccerfield" />
 
@@ -102,7 +102,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="52dp"
+        android:layout_marginEnd="48dp"
         android:ems="10"
         android:hint="Opening hour"
         android:inputType="number"
@@ -114,20 +114,20 @@
         android:id="@+id/etCHAI"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="52dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="48dp"
         android:ems="10"
         android:hint="Closing hour"
         android:inputType="number"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etOHAUI"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/etOHAUI" />
 
     <Button
         android:id="@+id/btnCancelAU"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
         android:background="#00695c"
         android:ems="15"
         android:text="Cancel"
@@ -135,6 +135,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -156,20 +157,21 @@
         android:id="@+id/tvCostAU"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="40dp"
+        android:inputType="number"
+        android:minHeight="48dp"
         android:text="Cost per hour"
         app:layout_constraintEnd_toStartOf="@+id/etCostAU"
-        app:layout_constraintHorizontal_bias="0.228"
+        app:layout_constraintHorizontal_bias="0.536"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCHourAU"
-        android:inputType="number"/>
+        app:layout_constraintTop_toBottomOf="@+id/tvCHourAU" />
 
     <TextView
         android:id="@+id/tvCostAU3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="56dp"
         android:text="City"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCostAU" />
@@ -191,25 +193,24 @@
         android:id="@+id/linearLayoutUI"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="28dp"
         android:orientation="vertical"
         android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.622"
+        app:layout_constraintHorizontal_bias="0.606"
         app:layout_constraintStart_toEndOf="@+id/tvCostAU3"
         app:layout_constraintTop_toBottomOf="@+id/etCostAU">
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="wrap_content"
+            android:layout_width="204dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:hint="@string/select_city">
 
             <AutoCompleteTextView
                 android:id="@+id/AUUI"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/select_city"
                 android:textColor="#003d33"
@@ -217,4 +218,26 @@
 
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="364dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="76dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="154dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

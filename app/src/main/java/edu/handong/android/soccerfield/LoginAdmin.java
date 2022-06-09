@@ -17,6 +17,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginAdmin extends AppCompatActivity {
 
+    //DECLARE VARIABLES
+
     FirebaseAuth mAuth;
     EditText userName;
     EditText pswd;
@@ -28,8 +30,9 @@ public class LoginAdmin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_admin);
 
-        mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance(); //GET INSTANCE FROM THE REALTIME DB FIREBASE
 
+        //REFER TO UI ELEMENTS
         userName = findViewById(R.id.username_text);
         pswd = findViewById(R.id.password_text);
         login = findViewById(R.id.Sign_in);
@@ -37,31 +40,30 @@ public class LoginAdmin extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Login();
-                //Toast.makeText(LoginAdmin.this, userName.getText().toString(), Toast.LENGTH_SHORT).show();
+                Login(); //CALL LOGIN METHOD
             }
         });
     }
 
     private void Login (){
-        String email = userName.getText().toString().trim();
-        String psw = pswd.getText().toString();
+        String email = userName.getText().toString().trim(); //GET EMAIL WITH NO BLANK SPACES FROM THE EDIT TEXT
+        String psw = pswd.getText().toString(); //GET PASSWORD FROM THE EDIT TEXT
 
-        if (TextUtils.isEmpty(email)){
+        if (TextUtils.isEmpty(email)){ //IF EMAIL EDIT TEXT IS EMPTY REQUEST FOR COMPLIANCE
             userName.setError("Email shouldn't be empty");
             userName.requestFocus();
-        } else if (TextUtils.isEmpty(psw)){
+        } else if (TextUtils.isEmpty(psw)){ //IF PASSWORD EDIT TEXT IS EMPTY REQUEST FOR COMPLIANCE
             pswd.setError("Email shouldn't be empty");
             pswd.requestFocus();
         } else {
-            mAuth.signInWithEmailAndPassword(email,psw).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            mAuth.signInWithEmailAndPassword(email,psw).addOnCompleteListener(new OnCompleteListener<AuthResult>() { //USE FIREBASE METHOD TO SIGN IN WITH EMAIL AND PASSWORD
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
-                    if(task.isSuccessful()){
-                        Toast.makeText(LoginAdmin.this, "Welcome "+email, Toast.LENGTH_SHORT).show();
-                        finish();
+                    if(task.isSuccessful()){ //IF EMAIL AND PASSWORD LOGIN IS SUCCESSFUL
+                        Toast.makeText(LoginAdmin.this, "Welcome "+email, Toast.LENGTH_SHORT).show(); //DISPLAY WELCOME MESSAGE
+                        finish(); //END ACTIVITY TO REFRESH T
                     }else {
-                        Toast.makeText(LoginAdmin.this, "Login error: "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginAdmin.this, "Login error: "+task.getException().getMessage(), Toast.LENGTH_SHORT).show(); //LOGIN ERROR MESSAGE
                     }
                 }
             });

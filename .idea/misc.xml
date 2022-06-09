@@ -31,12 +31,15 @@
         <entry key="..\:/Users/1/AndroidStudioProjects/SoccerField/app/src/main/res/layout/items.xml" value="0.253125" />
         <entry key="..\:/Users/1/AndroidStudioProjects/SoccerField/app/src/main/res/layout/list_item.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/activity_admin_options.xml" value="0.22239583333333332" />
+        <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/activity_balance_admin.xml" value="0.2375" />
+        <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/activity_cancel_reservation.xml" value="0.2375" />
         <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/activity_check_reservation.xml" value="0.2375" />
-        <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/activity_choose_field.xml" value="0.10815602836879433" />
+        <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/activity_choose_field.xml" value="0.2222222222222222" />
         <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/activity_field_admin.xml" value="0.2375" />
-        <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/activity_field_search.xml" value="0.10815602836879433" />
-        <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/activity_login_admin.xml" value="0.4" />
-        <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/activity_main.xml" value="0.22239583333333332" />
+        <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/activity_field_search.xml" value="0.2222222222222222" />
+        <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/activity_login_admin.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/activity_password_update.xml" value="0.2375" />
         <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/activity_reservation_info.xml" value="0.2375" />
         <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/activity_reservations.xml" value="0.2375" />
         <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/activity_reserve_confirm.xml" value="0.2375" />
@@ -46,11 +49,12 @@
         <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/activity_sf_list.xml" value="0.2222222222222222" />
         <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/activity_signin_ad.xml" value="0.2375" />
         <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/activity_soccer_field_info.xml" value="0.2375" />
-        <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/activity_update_sf_info.xml" value="0.2375" />
+        <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/activity_update_sf_info.xml" value="0.48888888888888893" />
         <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/card.xml" value="0.48888888888888893" />
         <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/cardReservation.xml" value="0.2375" />
         <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/card_reservation.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/items.xml" value="0.2375" />
+        <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/list_item.xml" value="0.2375" />
         <entry key="..\:/Users/ecto1/Documents/HGU/3/Android/Project/app/src/main/res/layout/sample_card_reservation.xml" value="0.2375" />
       </map>
     </option>

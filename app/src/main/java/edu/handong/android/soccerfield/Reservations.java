@@ -25,11 +25,10 @@ import java.util.List;
 
 public class Reservations extends AppCompatActivity {
 
+    //DECLARE VARIABLES
     DatabaseReference getData;
-    int size;
     FirebaseAuth mAuth;
     List <Reserves> AReservations = new ArrayList<Reserves>();
-    int i, k;
     LinearLayout LL;
     Button btnCancel;
 
@@ -38,8 +37,13 @@ public class Reservations extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservations);
 
-        i = 0;
-        k = 0;
+        //ASSIGN VALUES TO VARIABLES
+        mAuth = FirebaseAuth.getInstance(); //REFERENCE FOR FIREBASE AUTHENTICATION
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance(); //REFERENCE TO FIREBASE RT-DATABASE
+        DatabaseReference databaseReference = firebaseDatabase.getReference(); //REFERENCE TO FIREBASE RT-DATABASE
+        getData = databaseReference.child("reservations/users").child(mAuth.getCurrentUser().getUid()); //REFERENCE TO A SPECIFIC BRANCH WITHIN THE FIREBASE RT-DB
+
+        //REFER TO UI ELEMENTS
         LL = findViewById(R.id.llReservations);
         btnCancel = findViewById(R.id.btnOk);
 
@@ -47,31 +51,19 @@ public class Reservations extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
-            }
+            } //END ACTIVITY TO RETURN TO PREVIOUS ACTIVITY
         });
-
-        mAuth = FirebaseAuth.getInstance();
-
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference = firebaseDatabase.getReference();
-
-        getData = databaseReference.child("reservations/users").child(mAuth.getCurrentUser().getUid());
 
         getData.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Reserves reserve = snapshot.getValue(Reserves.class);
-                    AReservations.add(reserve);
-                    i++;
-                    k++;
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) { //LOOP THROUGH ALL THE CHILD ELEMENTS WITHIN THE SPECIFIC BRANCH OF RESERVATIONS FROM USERS
+                    Reserves reserve = snapshot.getValue(Reserves.class); //GET A CHILD ELEMENT
+                    AReservations.add(reserve); //POPULATE AN ARRAY LIST FOR FURTHER ITERATION
                 }
 
-                i=0;
-
-                for (int j=0; j<k; j++){
-                    add();
-
+                for (int j=0; j<AReservations.size(); j++){
+                    add(j); //ADDING ELEMENTS TO THE RESERVATION LIST AND DISPLAYING
                 }
             }
 
@@ -83,48 +75,52 @@ public class Reservations extends AppCompatActivity {
 
     }
 
-    private void add(){
+    private void add(int i){
 
+        //REFERENCE TO FIREBASE
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = firebaseDatabase.getReference();
-        DatabaseReference ref = databaseReference.child("reservations/users").child(mAuth.getCurrentUser().getUid()).child(AReservations.get(i).getReservationID());
-        DatabaseReference ref2 = databaseReference.child("reservations/fields").child(AReservations.get(i).getID()).child(Integer.toString(AReservations.get(i).getHour()));
+        DatabaseReference ref = databaseReference.child("reservations/users").child(mAuth.getCurrentUser().getUid()).child(AReservations.get(i).getReservationID()); //REFERENCE TO RESERVATIONS MADE FROM USERS
+        DatabaseReference ref2 = databaseReference.child("reservations/fields").child(AReservations.get(i).getID()).child(Integer.toString(AReservations.get(i).getHour())); //REFERENCE TO FIELDS RESERVATIONS BY HOUR
 
+        View v = getLayoutInflater().inflate(R.layout.card_reservation,null); //USE DE CARD UI RESOURCE FILE TO POPULATE THE VIEW
+        v.setTag(i); //IDENTIFY THE CARD
 
-        View v = getLayoutInflater().inflate(R.layout.card_reservation,null);
-        v.setTag(i);
+        //REFERENCE TO THE UI ELEMENTS OF THE CARD RESOURCE
         TextView tvTitle = v.findViewById(R.id.tvTitleCR);
         TextView tvHour = v.findViewById(R.id.tvHourCR);
         TextView tvCost = v.findViewById(R.id.tvCostCR);
         Button btnCancel = v.findViewById(R.id.btnCancel_reservation);
 
+        //SET VALUES TO UI ELEMENTS
         tvTitle.setText(AReservations.get(i).getFname());
         tvHour.setText(Integer.toString(AReservations.get(i).getHour()));
         tvCost.setText(Integer.toString(AReservations.get(i).getTotal()));
 
-        LL.addView(v);
+        LL.addView(v); //ADD THE CARD TO THE LAYOUT
 
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ref.removeValue();
-                ref2.removeValue();
-                Toast.makeText(Reservations.this, "Reservation cancelled successfully", Toast.LENGTH_SHORT).show();
-                finish();
+                ref.removeValue(); //REMOVE THE RESERVATION FROM THE USERS BRANCH AT FIREBASE RT-DB
+                ref2.removeValue(); //REMOVE THE RESERVATION FROM THE FIELDS BRANCH AT FIREBASE RE-DB
+                Toast.makeText(Reservations.this, "Reservation cancelled successfully", Toast.LENGTH_SHORT).show(); //SUCCESSFUL RESERVATION CANCELING MESSAGE
+                finish(); //FINISH THE ACTIVITY AND RETURN TO PREVIOUS ACTIVITY
             }
-
         });
-        i++;
     }
 }
 
-class Reserves {
-    private int hour;
-    private String Fname;
-    private String ID;
-    private int total;
-    private String reservationID;
+class Reserves { //CLASS NEEDED TO RETRIEVE DATA FROM FIREBASE RT-DATABASE
 
+    //DECLARING VARIABLES ACCORDING TO THE FIREBASE RT-DB FIELDS NAMES
+    private int hour; //HOUR RESERVED
+    private String Fname; //FIELD NAME
+    private String ID; //FIELD ID
+    private int total; //TOTAL TO PAY PER HOUR
+    private String reservationID; //RESERVATION ID
+
+    //GETTERS AND SETTERS
     public String getFname() {
         return Fname;
     }

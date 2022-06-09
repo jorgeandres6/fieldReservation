@@ -14,13 +14,15 @@ public class ReserveOK extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserve_ok);
 
+        //REFERENCE TO UI ELEMENTS
         Button btnBack = findViewById(R.id.btnBackR);
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class); //LAUNCH MAIN MENU ACTIVITY
                 startActivity(intent);
+                finish(); //END ACTIVITY
             }
         });
     }

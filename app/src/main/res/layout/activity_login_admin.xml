@@ -8,7 +8,7 @@
 
     <EditText
         android:id="@+id/username_text"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="76dp"
         android:text=""
@@ -25,7 +25,7 @@
 
     <EditText
         android:id="@+id/password_text"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:autofillHints="Password"
@@ -50,6 +50,7 @@
         android:textColor="#FFF"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password_text"
         tools:ignore="MissingConstraints" />
